@@ -1,2 +1,3 @@
-# voyage
-Minecraft mods that adds lightweight biomes
+# Voyage
+
+Minecraft forge mod that adds lightweight biomes
