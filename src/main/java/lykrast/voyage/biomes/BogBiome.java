@@ -27,7 +27,7 @@ public class BogBiome extends Biome {
 				.surfaceBuilder(SurfaceBuilder.SWAMP, SurfaceBuilder.GRASS_DIRT_GRAVEL_CONFIG)
 				.precipitation(RainType.RAIN).category(Category.SWAMP)
 				.depth(-0.2F).scale(0.0F).temperature(0.8F).downfall(0.9F)
-				.waterColor(ColorConstants.WATER_MOUNTAINS).waterFogColor(ColorConstants.WATERFOG_MOUNTAINS));
+				.waterColor(ColorConstants.WATER_SWAMP).waterFogColor(ColorConstants.WATERFOG_SWAMP));
 		//Adapted from Swamp
 		addStructure(Feature.MINESHAFT, new MineshaftConfig(0.004D, MineshaftStructure.Type.NORMAL));
 		DefaultBiomeFeatures.addCarvers(this);

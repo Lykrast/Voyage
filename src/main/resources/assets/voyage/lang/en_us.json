@@ -1,4 +1,7 @@
 {
 	"biome.voyage.mount": "Mount",
-	"biome.voyage.bog": "Bog"
+	"biome.voyage.bog": "Bog",
+	"biome.voyage.lagoon_warm": "Warm Lagoon",
+	"biome.voyage.lagoon_lukewarm": "Lukewarm Lagoon",
+	"biome.voyage.lagoon_cold": "Cold Lagoon"
 }
