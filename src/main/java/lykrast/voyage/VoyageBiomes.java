@@ -1,9 +1,8 @@
 package lykrast.voyage;
 
-import static net.minecraftforge.common.BiomeDictionary.Type.COLD;
-import static net.minecraftforge.common.BiomeDictionary.Type.MOUNTAIN;
+import static net.minecraftforge.common.BiomeDictionary.Type.*;
 
-import lykrast.voyage.biomes.MountBiome;
+import lykrast.voyage.biomes.*;
 import net.minecraft.world.biome.Biome;
 import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.common.BiomeDictionary.Type;
@@ -21,6 +20,7 @@ public class VoyageBiomes {
 	public static void registerBiomes(final RegistryEvent.Register<Biome> event) {
 		IForgeRegistry<Biome> reg = event.getRegistry();
 		register(reg, new MountBiome(), "mount", 10, false, BiomeType.COOL, MOUNTAIN, COLD);
+		register(reg, new BogBiome(), "bog", 10, false, BiomeType.WARM, WET, SWAMP);
 	}
 	
 	//Convenience
