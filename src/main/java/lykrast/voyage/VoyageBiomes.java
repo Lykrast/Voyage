@@ -24,11 +24,12 @@ public class VoyageBiomes {
 		register(reg, new LagoonWarmBiome(), "lagoon_warm", 10, false, BiomeType.WARM, BEACH, WET, HOT);
 		register(reg, new LagoonLukewarmBiome(), "lagoon_lukewarm", 10, true, BiomeType.WARM, BEACH, WET);
 		register(reg, new LagoonColdBiome(), "lagoon_cold", 10, true, BiomeType.COOL, BEACH, WET, COLD);
+		register(reg, new SteppeBiome(), "steppe", 10, false, BiomeType.WARM, PLAINS, SPARSE, HOT, DRY);
 	}
 	
 	//Convenience
 	private static Biome register(IForgeRegistry<Biome> reg, Biome biome, String name, int weight, boolean canSpawn, BiomeType managerType, Type... dictTypes) {
-		reg.register(biome.setRegistryName(Voyage.MODID, name));
+		reg.register(biome.setRegistryName(Voyage.loc(name)));
 		BiomeManager.addBiome(managerType, new BiomeManager.BiomeEntry(biome, weight));
 		if (canSpawn) BiomeManager.addSpawnBiome(biome);
 		BiomeDictionary.addTypes(biome, dictTypes);
