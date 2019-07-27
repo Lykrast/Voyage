@@ -19,7 +19,7 @@ public class VoyageBiomes {
 	@SubscribeEvent
 	public static void registerBiomes(final RegistryEvent.Register<Biome> event) {
 		IForgeRegistry<Biome> reg = event.getRegistry();
-		register(reg, new MountBiome(), "mount", 10, false, BiomeType.COOL, MOUNTAIN, COLD);
+		register(reg, new MountBiome(), "mount", 8, false, BiomeType.COOL, MOUNTAIN, COLD);
 		register(reg, new BogBiome(), "bog", 10, false, BiomeType.WARM, WET, SWAMP);
 		register(reg, new LagoonWarmBiome(), "lagoon_warm", 10, false, BiomeType.WARM, BEACH, WET, HOT);
 		register(reg, new LagoonLukewarmBiome(), "lagoon_lukewarm", 10, true, BiomeType.WARM, BEACH, WET);

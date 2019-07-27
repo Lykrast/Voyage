@@ -13,6 +13,7 @@ import net.minecraft.world.gen.feature.GrassFeatureConfig;
 import net.minecraft.world.gen.feature.IFeatureConfig;
 import net.minecraft.world.gen.feature.structure.MineshaftConfig;
 import net.minecraft.world.gen.feature.structure.MineshaftStructure;
+import net.minecraft.world.gen.feature.structure.VillageConfig;
 import net.minecraft.world.gen.placement.NoiseDependant;
 import net.minecraft.world.gen.placement.Placement;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
@@ -26,6 +27,7 @@ public class SteppeBiome extends Biome {
 				.depth(0.125F).scale(0.05F).temperature(1.2F).downfall(0.0F)
 				.waterColor(ColorConstants.STANDARD_WATER).waterFogColor(ColorConstants.STANDARD_WATERFOG));
 		//Adapted from Plains
+		addStructure(Feature.VILLAGE, new VillageConfig("village/savanna/town_centers", 6));
 		addStructure(Feature.MINESHAFT, new MineshaftConfig(0.004D, MineshaftStructure.Type.NORMAL));
 		addStructure(Feature.STRONGHOLD, IFeatureConfig.NO_FEATURE_CONFIG);
 		DefaultBiomeFeatures.addCarvers(this);
