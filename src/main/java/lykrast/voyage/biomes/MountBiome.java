@@ -18,7 +18,7 @@ public class MountBiome extends Biome {
 				.surfaceBuilder(SurfaceBuilder.MOUNTAIN, SurfaceBuilder.GRASS_DIRT_GRAVEL_CONFIG)
 				.precipitation(RainType.RAIN).category(Category.EXTREME_HILLS)
 				.depth(4.0F).scale(0.5F).temperature(0.2F).downfall(0.3F)
-				.waterColor(ColorConstants.WATER_MOUNTAINS).waterFogColor(ColorConstants.WATERFOG_COLD));
+				.waterColor(ColorConstants.MOUNTAINS_WATER).waterFogColor(ColorConstants.COLD_WATERFOG));
 		//Adapted from Mountains, Gravelly Mountains and Gravelly Mountains+
 		addStructure(Feature.MINESHAFT, new MineshaftConfig(0.004D, MineshaftStructure.Type.NORMAL));
 		addStructure(Feature.STRONGHOLD, IFeatureConfig.NO_FEATURE_CONFIG);

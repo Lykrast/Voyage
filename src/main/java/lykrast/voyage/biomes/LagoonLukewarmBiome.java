@@ -17,7 +17,7 @@ public class LagoonLukewarmBiome extends Biome {
 				.surfaceBuilder(SurfaceBuilder.DEFAULT, SurfaceBuilder.GRASS_DIRT_SAND_CONFIG)
 				.precipitation(RainType.RAIN).category(Category.BEACH)
 				.depth(-0.3F).scale(0.0125F).temperature(0.5F).downfall(0.5F)
-				.waterColor(ColorConstants.WATER_OCEAN_LUKEWARM).waterFogColor(ColorConstants.WATERFOG_OCEAN_LUKEWARM));
+				.waterColor(ColorConstants.OCEAN_LUKEWARM_WATER).waterFogColor(ColorConstants.OCEAN_LUKEWARM_WATERFOG));
 		//Adapted from Lukewarm Ocean
 		addStructure(Feature.MINESHAFT, new MineshaftConfig(0.004D, MineshaftStructure.Type.NORMAL));
 		DefaultBiomeFeatures.addOceanCarvers(this);

@@ -21,7 +21,7 @@ public class LagoonColdBiome extends Biome {
 				.surfaceBuilder(SurfaceBuilder.DEFAULT, SurfaceBuilder.GRASS_DIRT_GRAVEL_CONFIG)
 				.precipitation(RainType.RAIN).category(Category.BEACH)
 				.depth(-0.3F).scale(0.0125F).temperature(0.5F).downfall(0.5F)
-				.waterColor(ColorConstants.WATER_OCEAN_COLD).waterFogColor(ColorConstants.WATERFOG_COLD));
+				.waterColor(ColorConstants.OCEAN_COLD_WATER).waterFogColor(ColorConstants.COLD_WATERFOG));
 		//Adapted from Cold Ocean
 		addStructure(Feature.MINESHAFT, new MineshaftConfig(0.004D, MineshaftStructure.Type.NORMAL));
 		DefaultBiomeFeatures.addOceanCarvers(this);
