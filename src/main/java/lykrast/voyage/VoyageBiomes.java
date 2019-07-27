@@ -26,6 +26,8 @@ public class VoyageBiomes {
 		register(reg, new LagoonColdBiome(), "lagoon_cold", 10, true, BiomeType.COOL, BEACH, WET, COLD);
 		register(reg, new SteppeBiome(), "steppe", 10, false, BiomeType.WARM, PLAINS, SPARSE, HOT, DRY);
 		register(reg, new RockyPeaksBiome(), "rocky_peaks", 10, false, BiomeType.WARM, MOUNTAIN);
+		register(reg, new DesertMixedBiome(), "desert_mixed", 10, false, BiomeType.DESERT, SANDY, HOT, DRY);
+		register(reg, new DesertMixedHillsBiome(), "desert_mixed_hills", 10, false, BiomeType.DESERT, SANDY, HILLS, HOT, DRY);
 	}
 	
 	//Convenience

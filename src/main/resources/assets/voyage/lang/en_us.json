@@ -5,5 +5,7 @@
 	"biome.voyage.lagoon_lukewarm": "Lukewarm Lagoon",
 	"biome.voyage.lagoon_cold": "Cold Lagoon",
 	"biome.voyage.steppe": "Steppe",
-	"biome.voyage.rocky_peaks": "Rocky Peaks"
+	"biome.voyage.rocky_peaks": "Rocky Peaks",
+	"biome.voyage.desert_mixed": "Mixed Desert",
+	"biome.voyage.desert_mixed_hills": "Mixed Desert Hills"
 }
