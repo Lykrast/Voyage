@@ -16,6 +16,7 @@ public class VoyageSurfaceBuilders {
 	private static List<SurfaceBuilder<?>> builders = new ArrayList<>();
 	//This registry fires AFTER Biomes, so have to build them before
 	public static final SurfaceBuilder<SurfaceBuilderConfig> STEPPE = make(new DualSurfaceBuilder(SurfaceBuilder.SAND_CONFIG, SurfaceBuilder.GRASS_DIRT_GRAVEL_CONFIG), "steppe");
+	public static final SurfaceBuilder<SurfaceBuilderConfig> ROCKY_PEAKS = make(new DualSurfaceBuilder(SurfaceBuilder.STONE_STONE_GRAVEL_CONFIG, SurfaceBuilder.GRAVEL_CONFIG), "rocky_peaks");
 	
 	@SubscribeEvent
 	public static void registerBiomes(final RegistryEvent.Register<SurfaceBuilder<?>> event) {

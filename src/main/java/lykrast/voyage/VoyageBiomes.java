@@ -25,6 +25,7 @@ public class VoyageBiomes {
 		register(reg, new LagoonLukewarmBiome(), "lagoon_lukewarm", 10, true, BiomeType.WARM, BEACH, WET);
 		register(reg, new LagoonColdBiome(), "lagoon_cold", 10, true, BiomeType.COOL, BEACH, WET, COLD);
 		register(reg, new SteppeBiome(), "steppe", 10, false, BiomeType.WARM, PLAINS, SPARSE, HOT, DRY);
+		register(reg, new RockyPeaksBiome(), "rocky_peaks", 10, false, BiomeType.WARM, MOUNTAIN);
 	}
 	
 	//Convenience
