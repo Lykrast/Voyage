@@ -1,13 +1,18 @@
 package lykrast.voyage.biomes;
 
 import lykrast.voyage.ColorConstants;
+import net.minecraft.block.Blocks;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.DefaultBiomeFeatures;
+import net.minecraft.world.gen.GenerationStage;
 import net.minecraft.world.gen.feature.Feature;
+import net.minecraft.world.gen.feature.GrassFeatureConfig;
 import net.minecraft.world.gen.feature.structure.MineshaftConfig;
 import net.minecraft.world.gen.feature.structure.MineshaftStructure;
+import net.minecraft.world.gen.placement.FrequencyConfig;
+import net.minecraft.world.gen.placement.Placement;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
 
 public class LagoonLukewarmBiome extends Biome {
@@ -29,7 +34,8 @@ public class LagoonLukewarmBiome extends Biome {
 		DefaultBiomeFeatures.addSedimentDisks(this);
 		DefaultBiomeFeatures.func_222296_u(this);
 		DefaultBiomeFeatures.addDefaultFlowers(this);
-		DefaultBiomeFeatures.func_222348_W(this);
+		//DefaultBiomeFeatures.func_222348_W(this);
+		addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Biome.createDecoratedFeature(Feature.GRASS, new GrassFeatureConfig(Blocks.GRASS.getDefaultState()), Placement.COUNT_HEIGHTMAP_DOUBLE, new FrequencyConfig(5)));
 		DefaultBiomeFeatures.addMushrooms(this);
 		DefaultBiomeFeatures.addReedsAndPumpkins(this);
 		DefaultBiomeFeatures.addSprings(this);
