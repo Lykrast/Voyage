@@ -30,6 +30,7 @@ public class VoyageBiomes {
 		register(reg, new DesertMixedHillsBiome(), "desert_mixed_hills", 10, false, BiomeType.DESERT, SANDY, HILLS, HOT, DRY);
 		register(reg, new FlowerPlainsBiome(), "flower_plains", 10, true, BiomeType.WARM, PLAINS);
 		register(reg, new DesertMountainsBiome(), "desert_mountains", 10, false, BiomeType.DESERT, SANDY, HILLS, MOUNTAIN, HOT, DRY);
+		register(reg, new DesertPolarBiome(), "desert_polar", 10, false, BiomeType.ICY, SNOWY, WASTELAND, COLD, DRY);
 	}
 	
 	//Convenience
