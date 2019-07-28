@@ -2,9 +2,9 @@ modLoader="javafml"
 loaderVersion="[28,)"
 issueTrackerURL="https://github.com/Lykrast/Voyage/issues"
 
-[[mods]] #mandatory
+[[mods]]
 modId="voyage"
-version="${file.jarVersion}"
+version="${version}"
 displayName="Voyage"
 # A URL for the "homepage" for this mod, displayed in the mod UI
 displayURL="http://example.com/"
