@@ -25,13 +25,14 @@ public class VoyageBiomes {
 		register(reg, new LagoonLukewarmBiome(), "lagoon_lukewarm", 10, false, BiomeType.WARM, BEACH, WET);
 		register(reg, new LagoonColdBiome(), "lagoon_cold", 10, false, BiomeType.COOL, BEACH, WET, COLD);
 		register(reg, new SteppeBiome(), "steppe", 10, false, BiomeType.WARM, PLAINS, SPARSE, HOT, DRY);
-		register(reg, new RockyPeaksBiome(), "rocky_peaks", 10, false, BiomeType.WARM, MOUNTAIN);
+		register(reg, new RockyPeaksBiome(), "rocky_peaks", 8, false, BiomeType.WARM, MOUNTAIN);
 		register(reg, new DesertMixedBiome(), "desert_mixed", 10, false, BiomeType.DESERT, SANDY, HOT, DRY);
 		register(reg, new DesertMixedHillsBiome(), "desert_mixed_hills", 10, false, BiomeType.DESERT, SANDY, HILLS, HOT, DRY);
 		register(reg, new FlowerPlainsBiome(), "flower_plains", 10, true, BiomeType.WARM, PLAINS);
 		register(reg, new DesertMountainsBiome(), "desert_mountains", 10, false, BiomeType.DESERT, SANDY, HILLS, MOUNTAIN, HOT, DRY);
 		register(reg, new DesertPolarBiome(), "desert_polar", 10, false, BiomeType.ICY, SNOWY, WASTELAND, COLD, DRY);
 		register(reg, new ForestLushBiome(), "forest_lush", 5, true, BiomeType.WARM, FOREST, DENSE);
+		register(reg, new RockFieldBiome(), "rock_field", 10, false, BiomeType.WARM, HILLS, DRY);
 	}
 	
 	//Convenience
