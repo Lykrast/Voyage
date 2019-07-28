@@ -2,14 +2,19 @@ package lykrast.voyage.biomes;
 
 import lykrast.voyage.ColorConstants;
 import lykrast.voyage.VoyageSurfaceBuilders;
+import net.minecraft.block.Blocks;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.DefaultBiomeFeatures;
+import net.minecraft.world.gen.GenerationStage;
+import net.minecraft.world.gen.feature.BlockBlobConfig;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.IFeatureConfig;
 import net.minecraft.world.gen.feature.structure.MineshaftConfig;
 import net.minecraft.world.gen.feature.structure.MineshaftStructure;
+import net.minecraft.world.gen.placement.FrequencyConfig;
+import net.minecraft.world.gen.placement.Placement;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
 
 public class RockyPeaksBiome extends Biome {
@@ -30,9 +35,12 @@ public class RockyPeaksBiome extends Biome {
 		DefaultBiomeFeatures.addStoneVariants(this);
 		DefaultBiomeFeatures.addOres(this);
 		DefaultBiomeFeatures.addSedimentDisks(this);
-		DefaultBiomeFeatures.func_222348_W(this);
-		DefaultBiomeFeatures.addMushrooms(this);
+		addFeature(GenerationStage.Decoration.LOCAL_MODIFICATIONS, Biome.createDecoratedFeature(Feature.FOREST_ROCK, new BlockBlobConfig(Blocks.COBBLESTONE.getDefaultState(), 1), Placement.FOREST_ROCK, new FrequencyConfig(4)));
+//		addFeature(GenerationStage.Decoration.LOCAL_MODIFICATIONS, Biome.createDecoratedFeature(Feature.FOREST_ROCK, new BlockBlobConfig(Blocks.GRANITE.getDefaultState(), 1), Placement.FOREST_ROCK, new FrequencyConfig(2)));
+//		addFeature(GenerationStage.Decoration.LOCAL_MODIFICATIONS, Biome.createDecoratedFeature(Feature.FOREST_ROCK, new BlockBlobConfig(Blocks.DIORITE.getDefaultState(), 1), Placement.FOREST_ROCK, new FrequencyConfig(2)));
+//		addFeature(GenerationStage.Decoration.LOCAL_MODIFICATIONS, Biome.createDecoratedFeature(Feature.FOREST_ROCK, new BlockBlobConfig(Blocks.ANDESITE.getDefaultState(), 1), Placement.FOREST_ROCK, new FrequencyConfig(2)));
 		DefaultBiomeFeatures.addSprings(this);
+		DefaultBiomeFeatures.addMushrooms(this);
 		DefaultBiomeFeatures.addExtraEmeraldOre(this);
 		DefaultBiomeFeatures.addInfestedStone(this);
 		DefaultBiomeFeatures.addFreezeTopLayer(this);
