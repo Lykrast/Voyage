@@ -1,0 +1,16 @@
+{
+	"biome.voyage.mount": "Mont",
+	"biome.voyage.bog": "Tourbière",
+	"biome.voyage.lagoon_warm": "Lagon chaud",
+	"biome.voyage.lagoon_lukewarm": "Lagon tiède",
+	"biome.voyage.lagoon_cold": "Lagon froid",
+	"biome.voyage.steppe": "Steppe",
+	"biome.voyage.rocky_peaks": "Pics rocheux",
+	"biome.voyage.desert_mixed": "Désert mixte",
+	"biome.voyage.desert_mixed_hills": "Collines de désert mixte",
+	"biome.voyage.flower_plains": "Plaines fleuries",
+	"biome.voyage.desert_mountains": "Montagnes de désert",
+	"biome.voyage.desert_polar": "Désert polaire",
+	"biome.voyage.forest_lush": "Forêt luxuriante",
+	"biome.voyage.rock_field": "Champ de roches"
+}
