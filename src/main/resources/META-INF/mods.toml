@@ -6,8 +6,7 @@ issueTrackerURL="https://github.com/Lykrast/Voyage/issues"
 modId="voyage"
 version="${version}"
 displayName="Voyage"
-# A URL for the "homepage" for this mod, displayed in the mod UI
-displayURL="http://example.com/"
+displayURL="https://www.curseforge.com/minecraft/mc-mods/voyage"
 credits="Traverse for the idea of a lightweight biome mod"
 authors="Lykrast"
 description='''
