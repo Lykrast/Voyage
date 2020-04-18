@@ -13,7 +13,7 @@ apply plugin: 'net.minecraftforge.gradle'
 apply plugin: 'eclipse'
 apply plugin: 'maven-publish'
 
-version = project.mod_version
+version = "${project.minecraft_version}-${project.mod_version}"
 group = 'lykrast.voyage' // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = 'voyage'
 
