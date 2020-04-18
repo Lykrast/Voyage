@@ -22,8 +22,8 @@ public class DesertPolarBiome extends Biome {
 				.depth(0.05F).scale(0.0F).temperature(0.0F).downfall(0.0F)
 				.waterColor(ColorConstants.STANDARD_WATER).waterFogColor(ColorConstants.STANDARD_WATERFOG));
 		//Adapted from Snowy Tundra
-		addStructure(Feature.MINESHAFT, new MineshaftConfig(0.004D, MineshaftStructure.Type.NORMAL));
-		addStructure(Feature.STRONGHOLD, IFeatureConfig.NO_FEATURE_CONFIG);
+		addStructure(Feature.MINESHAFT.withConfiguration(new MineshaftConfig(0.004D, MineshaftStructure.Type.NORMAL)));
+		addStructure(Feature.STRONGHOLD.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG));
 		DefaultBiomeFeatures.addCarvers(this);
 		DefaultBiomeFeatures.addStructures(this);
 		DefaultBiomeFeatures.addLakes(this);

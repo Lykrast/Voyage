@@ -24,7 +24,6 @@ public class VoyageSurfaceBuilders {
 	public static void registerBiomes(final RegistryEvent.Register<SurfaceBuilder<?>> event) {
 		IForgeRegistry<SurfaceBuilder<?>> reg = event.getRegistry();
 		builders.forEach(reg::register);
-		builders.forEach(Voyage.LOGGER::info);
 		builders = null;
 	}
 	

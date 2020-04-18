@@ -10,7 +10,6 @@ import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.IFeatureConfig;
 import net.minecraft.world.gen.feature.structure.MineshaftConfig;
 import net.minecraft.world.gen.feature.structure.MineshaftStructure;
-import net.minecraft.world.gen.feature.structure.PillagerOutpostConfig;
 import net.minecraft.world.gen.feature.structure.VillageConfig;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
 
@@ -23,11 +22,11 @@ public class DesertMixedBiome extends Biome {
 				.depth(0.125F).scale(0.05F).temperature(2.0F).downfall(0.0F)
 				.waterColor(ColorConstants.STANDARD_WATER).waterFogColor(ColorConstants.STANDARD_WATERFOG));
 		//Adapted from Desert
-		addStructure(Feature.VILLAGE, new VillageConfig("village/desert/town_centers", 6));
-		addStructure(Feature.PILLAGER_OUTPOST, new PillagerOutpostConfig(0.004D));
-		addStructure(Feature.DESERT_PYRAMID, IFeatureConfig.NO_FEATURE_CONFIG);
-		addStructure(Feature.MINESHAFT, new MineshaftConfig(0.004D, MineshaftStructure.Type.NORMAL));
-		addStructure(Feature.STRONGHOLD, IFeatureConfig.NO_FEATURE_CONFIG);
+		addStructure(Feature.VILLAGE.withConfiguration(new VillageConfig("village/desert/town_centers", 6)));
+		addStructure(Feature.PILLAGER_OUTPOST.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG));
+		addStructure(Feature.DESERT_PYRAMID.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG));
+		addStructure(Feature.MINESHAFT.withConfiguration(new MineshaftConfig(0.004D, MineshaftStructure.Type.NORMAL)));
+		addStructure(Feature.STRONGHOLD.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG));
 		DefaultBiomeFeatures.addCarvers(this);
 		DefaultBiomeFeatures.addStructures(this);
 		DefaultBiomeFeatures.addDesertLakes(this);
@@ -36,7 +35,7 @@ public class DesertMixedBiome extends Biome {
 		DefaultBiomeFeatures.addOres(this);
 		DefaultBiomeFeatures.addSedimentDisks(this);
 		DefaultBiomeFeatures.addDefaultFlowers(this);
-		DefaultBiomeFeatures.func_222348_W(this);
+		DefaultBiomeFeatures.addSparseGrass(this);
 		DefaultBiomeFeatures.addDeadBushes(this);
 		DefaultBiomeFeatures.addMushrooms(this);
 		DefaultBiomeFeatures.addExtraReedsPumpkinsCactus(this);

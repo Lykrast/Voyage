@@ -20,9 +20,9 @@ public class DesertMountainsBiome extends Biome {
 				.depth(1.0F).scale(0.5F).temperature(2.0F).downfall(0.0F)
 				.waterColor(ColorConstants.STANDARD_WATER).waterFogColor(ColorConstants.STANDARD_WATERFOG));
 		//Adapted from Desert Hills
-		addStructure(Feature.DESERT_PYRAMID, IFeatureConfig.NO_FEATURE_CONFIG);
-		addStructure(Feature.MINESHAFT, new MineshaftConfig(0.004D, MineshaftStructure.Type.NORMAL));
-		addStructure(Feature.STRONGHOLD, IFeatureConfig.NO_FEATURE_CONFIG);
+		addStructure(Feature.DESERT_PYRAMID.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG));
+		addStructure(Feature.MINESHAFT.withConfiguration(new MineshaftConfig(0.004D, MineshaftStructure.Type.NORMAL)));
+		addStructure(Feature.STRONGHOLD.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG));
 		DefaultBiomeFeatures.addCarvers(this);
 		DefaultBiomeFeatures.addStructures(this);
 		DefaultBiomeFeatures.addDesertLakes(this);
@@ -31,7 +31,7 @@ public class DesertMountainsBiome extends Biome {
 		DefaultBiomeFeatures.addOres(this);
 		DefaultBiomeFeatures.addSedimentDisks(this);
 		DefaultBiomeFeatures.addDefaultFlowers(this);
-		DefaultBiomeFeatures.func_222348_W(this);
+		DefaultBiomeFeatures.addSparseGrass(this);
 		DefaultBiomeFeatures.addDeadBushes(this);
 		DefaultBiomeFeatures.addMushrooms(this);
 		DefaultBiomeFeatures.addExtraReedsPumpkinsCactus(this);

@@ -1,6 +1,6 @@
 package lykrast.voyage.biomes;
 
-import java.util.Arrays;
+import com.google.common.collect.ImmutableList;
 
 import lykrast.voyage.ColorConstants;
 import lykrast.voyage.VoyageSurfaceBuilders;
@@ -8,7 +8,6 @@ import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
-import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.DefaultBiomeFeatures;
 import net.minecraft.world.gen.GenerationStage;
@@ -33,8 +32,8 @@ public class RockFieldBiome extends Biome {
 				.depth(0.1F).scale(0.2F).temperature(2.0F).downfall(0.0F)
 				.waterColor(ColorConstants.STANDARD_WATER).waterFogColor(ColorConstants.STANDARD_WATERFOG));
 		//Adapted from Badlands
-		addStructure(Feature.MINESHAFT, new MineshaftConfig(0.004D, MineshaftStructure.Type.NORMAL));
-		addStructure(Feature.STRONGHOLD, IFeatureConfig.NO_FEATURE_CONFIG);
+		addStructure(Feature.MINESHAFT.withConfiguration(new MineshaftConfig(0.004D, MineshaftStructure.Type.MESA)));
+		addStructure(Feature.STRONGHOLD.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG));
 		DefaultBiomeFeatures.addCarvers(this);
 		DefaultBiomeFeatures.addStructures(this);
 		DefaultBiomeFeatures.addLakes(this);
@@ -49,27 +48,22 @@ public class RockFieldBiome extends Biome {
 			BlockState diorite = Blocks.DIORITE.getDefaultState();
 			BlockState granite = Blocks.GRANITE.getDefaultState();
 			
-			Feature<?>[] features = new Feature[8];
-			Arrays.fill(features, Feature.FOREST_ROCK);
-			
 			addFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-					Biome.createDecoratedFeature(Feature.RANDOM_SELECTOR,
-							new MultipleRandomFeatureConfig(features,
-									new IFeatureConfig[] { 
-											new BlockBlobConfig(cobble, 1),
-											new BlockBlobConfig(cobble, 2),
-											new BlockBlobConfig(andesite, 0),
-											new BlockBlobConfig(diorite, 0),
-											new BlockBlobConfig(granite, 0), 
-											new BlockBlobConfig(andesite, 1),
-											new BlockBlobConfig(diorite, 1),
-											new BlockBlobConfig(granite, 1)
-											},
-									new float[] { 0.15F, 0.05F, 0.1F, 0.1F, 0.1F, 0.05F, 0.05F, 0.05F }, Feature.FOREST_ROCK,
-									new BlockBlobConfig(cobble, 0)),
-							Placement.FOREST_ROCK, new FrequencyConfig(6)));
+					Feature.RANDOM_SELECTOR.withConfiguration(
+							new MultipleRandomFeatureConfig(
+									ImmutableList.of(
+											Feature.FOREST_ROCK.withConfiguration(new BlockBlobConfig(cobble, 1)).func_227227_a_(0.15F), 
+											Feature.FOREST_ROCK.withConfiguration(new BlockBlobConfig(cobble, 2)).func_227227_a_(0.05F), 
+											Feature.FOREST_ROCK.withConfiguration(new BlockBlobConfig(andesite, 0)).func_227227_a_(0.1F), 
+											Feature.FOREST_ROCK.withConfiguration(new BlockBlobConfig(diorite, 0)).func_227227_a_(0.1F), 
+											Feature.FOREST_ROCK.withConfiguration(new BlockBlobConfig(granite, 0)).func_227227_a_(0.1F), 
+											Feature.FOREST_ROCK.withConfiguration(new BlockBlobConfig(andesite, 1)).func_227227_a_(0.05F), 
+											Feature.FOREST_ROCK.withConfiguration(new BlockBlobConfig(diorite, 1)).func_227227_a_(0.05F), 
+											Feature.FOREST_ROCK.withConfiguration(new BlockBlobConfig(granite, 1)).func_227227_a_(0.05F)), 
+									Feature.FOREST_ROCK.withConfiguration(new BlockBlobConfig(cobble, 0)))
+							).withPlacement(Placement.FOREST_ROCK.configure(new FrequencyConfig(6))));
 		}
-		DefaultBiomeFeatures.func_222308_M(this);
+		DefaultBiomeFeatures.addGrassAndDeadBushes(this);
 		DefaultBiomeFeatures.addMushrooms(this);
 		DefaultBiomeFeatures.addReedsPumpkinsCactus(this);
 		DefaultBiomeFeatures.addSprings(this);
@@ -87,13 +81,13 @@ public class RockFieldBiome extends Biome {
 
 	@Override
 	@OnlyIn(Dist.CLIENT)
-	public int getGrassColor(BlockPos pos) {
+	public int getGrassColor(double posX, double posZ) {
 		return 0xFFEE96;
 	}
 
 	@Override
 	@OnlyIn(Dist.CLIENT)
-	public int getFoliageColor(BlockPos pos) {
+	public int getFoliageColor() {
 		return 0xFFEE96;
 	}
 
