@@ -1,5 +1,8 @@
 package lykrast.voyage;
 
+import lykrast.voyage.init.ModFeatures;
+import lykrast.voyage.init.ModSurfaceBuilders;
+import noobanidus.libs.noobutil.registrate.CustomRegistrate;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -14,10 +17,14 @@ import net.minecraftforge.fml.loading.FMLPaths;
 public class Voyage {
 	public static final String MODID = "voyage";
 	public static final Logger LOGGER = LogManager.getLogger();
+	public static CustomRegistrate REGISTRATE;
 
 	public Voyage() {
-		//This bit is from the Traverse config system basically, nooby said it's cool (and MIT)
-		//https://github.com/MysticMods/Traverse/blob/master/src/main/java/epicsquid/traverse/Traverse.java
+		//This bit is from the Voyage config system basically, nooby said it's cool (and MIT)
+		//https://github.com/MysticMods/Voyage/blob/master/src/main/java/epicsquid/traverse/Voyage.java
+		REGISTRATE = CustomRegistrate.create("voyage");
+		ModSurfaceBuilders.load();
+		ModFeatures.load();
 		ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, ConfigManager.COMMON_CONFIG);
 		ConfigManager.loadConfig(ConfigManager.COMMON_CONFIG, FMLPaths.CONFIGDIR.get().resolve(MODID + "-common.toml"));
 	}

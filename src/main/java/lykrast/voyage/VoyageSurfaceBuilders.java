@@ -15,10 +15,7 @@ import net.minecraftforge.registries.IForgeRegistry;
 public class VoyageSurfaceBuilders {
 	private static List<SurfaceBuilder<?>> builders = new ArrayList<>();
 	//This registry fires AFTER Biomes, so have to build them before
-	public static final SurfaceBuilder<SurfaceBuilderConfig> STEPPE = make(new DualSurfaceBuilder(SurfaceBuilder.SAND_CONFIG, SurfaceBuilder.GRASS_DIRT_GRAVEL_CONFIG, 1), "steppe");
-	public static final SurfaceBuilder<SurfaceBuilderConfig> ROCKY_PEAKS = make(new DualSurfaceBuilder(SurfaceBuilder.STONE_STONE_GRAVEL_CONFIG, SurfaceBuilder.GRAVEL_CONFIG, 1), "rocky_peaks");
-	public static final SurfaceBuilder<SurfaceBuilderConfig> DESERT_MIXED = make(new DualSurfaceBuilder(new SurfaceBuilderConfig(SurfaceBuilder.RED_SAND, SurfaceBuilder.RED_SAND, SurfaceBuilder.GRAVEL), SurfaceBuilder.SAND_SAND_GRAVEL_CONFIG, 1), "desert_mixed");
-	public static final SurfaceBuilder<SurfaceBuilderConfig> ROCK_FIELD = make(new DualSurfaceBuilder(SurfaceBuilder.GRASS_DIRT_GRAVEL_CONFIG, SurfaceBuilder.STONE_STONE_GRAVEL_CONFIG, 3), "rock_field");
+
 	
 	@SubscribeEvent
 	public static void registerBiomes(final RegistryEvent.Register<SurfaceBuilder<?>> event) {

@@ -3,8 +3,8 @@ package lykrast.voyage.config;
 import net.minecraftforge.common.ForgeConfigSpec;
 
 public class BiomeConfig {
-	//This is basically the Traverse config system, nooby said it's cool (and MIT)
-	//https://github.com/MysticMods/Traverse/blob/master/src/main/java/epicsquid/traverse/config/BiomeConfig.java
+	//This is basically the Voyage config system, nooby said it's cool (and MIT)
+	//https://github.com/MysticMods/Voyage/blob/master/src/main/java/epicsquid/traverse/config/BiomeConfig.java
 	
 	private String name;
 	private int weight;

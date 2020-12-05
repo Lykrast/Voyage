@@ -1,58 +1,47 @@
 package lykrast.voyage.biomes;
 
 import lykrast.voyage.ColorConstants;
-import lykrast.voyage.VoyageSurfaceBuilders;
-import net.minecraft.entity.EntityClassification;
+import lykrast.voyage.VoyageBiomes;
+import lykrast.voyage.biomebuilder.BiomeTemplate;
+import lykrast.voyage.biomebuilder.DefaultFeature;
+import lykrast.voyage.init.ConfiguredSurfaceBuilders;
 import net.minecraft.entity.EntityType;
 import net.minecraft.world.biome.Biome;
-import net.minecraft.world.biome.DefaultBiomeFeatures;
-import net.minecraft.world.gen.feature.Feature;
-import net.minecraft.world.gen.feature.IFeatureConfig;
-import net.minecraft.world.gen.feature.structure.MineshaftConfig;
-import net.minecraft.world.gen.feature.structure.MineshaftStructure;
-import net.minecraft.world.gen.feature.structure.VillageConfig;
-import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
+import net.minecraft.world.biome.MobSpawnInfo;
+import net.minecraft.world.gen.feature.structure.StructureFeatures;
 
-public class DesertMixedBiome extends Biome {
+public class DesertMixedBiome {
+  public static final BiomeTemplate DESERT_TEMPLATE = new BiomeTemplate(VoyageBiomes.BIOME_TEMPLATE.builder()
+      .surfaceBuilder(ConfiguredSurfaceBuilders.CONFIGURED_DESERT_MIXED)
+      .precipitation(Biome.RainType.NONE)
+      .category(Biome.Category.DESERT)
+      .effects(VoyageBiomes.createDefaultBiomeAmbience()
+          .setWaterColor(ColorConstants.STANDARD_WATER)
+          .setWaterFogColor(ColorConstants.STANDARD_WATERFOG))
+      .addStructureFeature(StructureFeatures.VILLAGE_DESERT)
+      .addStructureFeature(StructureFeatures.DESERT_PYRAMID)
+      .addDefaultFeatures(DefaultFeature.LAND_CARVERS, DefaultFeature.DEFAULT_UNDERGROUND_STRUCTURES, DefaultFeature.DESERT_LAKES, DefaultFeature.DUNGEONS, DefaultFeature.DEFAULT_FLOWERS, DefaultFeature.BADLANDS_GRASS, DefaultFeature.DISKS, DefaultFeature.DESERT_DEAD_BUSHES, DefaultFeature.DEFAULT_MUSHROOMS, DefaultFeature.SPRINGS, DefaultFeature.DESERT_FEATURES, DefaultFeature.FROZEN_TOP_LAYER, DefaultFeature.BADLANDS_VEGETATION)
+      .addSpawnEntry(new MobSpawnInfo.Spawners(EntityType.RABBIT, 4, 2, 3))
+      .addSpawnEntry(new MobSpawnInfo.Spawners(EntityType.BAT, 10, 8, 8))
+      .addSpawnEntry(new MobSpawnInfo.Spawners(EntityType.SPIDER, 100, 4, 4))
+      .addSpawnEntry(new MobSpawnInfo.Spawners(EntityType.SKELETON, 100, 4, 4))
+      .addSpawnEntry(new MobSpawnInfo.Spawners(EntityType.CREEPER, 100, 4, 4))
+      .addSpawnEntry(new MobSpawnInfo.Spawners(EntityType.SLIME, 100, 4, 4))
+      .addSpawnEntry(new MobSpawnInfo.Spawners(EntityType.ENDERMAN, 10, 1, 4))
+      .addSpawnEntry(new MobSpawnInfo.Spawners(EntityType.WITCH, 5, 1, 1))
+      .addSpawnEntry(new MobSpawnInfo.Spawners(EntityType.ZOMBIE, 19, 4, 4))
+      .addSpawnEntry(new MobSpawnInfo.Spawners(EntityType.ZOMBIE_VILLAGER, 1, 1, 1))
+      .addSpawnEntry(new MobSpawnInfo.Spawners(EntityType.HUSK, 80, 4, 4))
+      .temperature(2.0F)
+      .downfall(0.0F));
 
-	public DesertMixedBiome() {
-		super((new Biome.Builder())
-				.surfaceBuilder(VoyageSurfaceBuilders.DESERT_MIXED, SurfaceBuilder.SAND_SAND_GRAVEL_CONFIG)
-				.precipitation(RainType.NONE).category(Category.DESERT)
-				.depth(0.125F).scale(0.05F).temperature(2.0F).downfall(0.0F)
-				.waterColor(ColorConstants.STANDARD_WATER).waterFogColor(ColorConstants.STANDARD_WATERFOG));
-		//Adapted from Desert
-		addStructure(Feature.VILLAGE.withConfiguration(new VillageConfig("village/desert/town_centers", 6)));
-		addStructure(Feature.PILLAGER_OUTPOST.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG));
-		addStructure(Feature.DESERT_PYRAMID.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG));
-		addStructure(Feature.MINESHAFT.withConfiguration(new MineshaftConfig(0.004D, MineshaftStructure.Type.NORMAL)));
-		addStructure(Feature.STRONGHOLD.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG));
-		DefaultBiomeFeatures.addCarvers(this);
-		DefaultBiomeFeatures.addStructures(this);
-		DefaultBiomeFeatures.addDesertLakes(this);
-		DefaultBiomeFeatures.addMonsterRooms(this);
-		DefaultBiomeFeatures.addStoneVariants(this);
-		DefaultBiomeFeatures.addOres(this);
-		DefaultBiomeFeatures.addSedimentDisks(this);
-		DefaultBiomeFeatures.addDefaultFlowers(this);
-		DefaultBiomeFeatures.addSparseGrass(this);
-		DefaultBiomeFeatures.addDeadBushes(this);
-		DefaultBiomeFeatures.addMushrooms(this);
-		DefaultBiomeFeatures.addExtraReedsPumpkinsCactus(this);
-		DefaultBiomeFeatures.addSprings(this);
-		DefaultBiomeFeatures.addDesertFeatures(this);
-		DefaultBiomeFeatures.addFreezeTopLayer(this);
-		addSpawn(EntityClassification.CREATURE, new Biome.SpawnListEntry(EntityType.RABBIT, 4, 2, 3));
-		addSpawn(EntityClassification.AMBIENT, new Biome.SpawnListEntry(EntityType.BAT, 10, 8, 8));
-		addSpawn(EntityClassification.MONSTER, new Biome.SpawnListEntry(EntityType.SPIDER, 100, 4, 4));
-		addSpawn(EntityClassification.MONSTER, new Biome.SpawnListEntry(EntityType.SKELETON, 100, 4, 4));
-		addSpawn(EntityClassification.MONSTER, new Biome.SpawnListEntry(EntityType.CREEPER, 100, 4, 4));
-		addSpawn(EntityClassification.MONSTER, new Biome.SpawnListEntry(EntityType.SLIME, 100, 4, 4));
-		addSpawn(EntityClassification.MONSTER, new Biome.SpawnListEntry(EntityType.ENDERMAN, 10, 1, 4));
-		addSpawn(EntityClassification.MONSTER, new Biome.SpawnListEntry(EntityType.WITCH, 5, 1, 1));
-		addSpawn(EntityClassification.MONSTER, new Biome.SpawnListEntry(EntityType.ZOMBIE, 19, 4, 4));
-		addSpawn(EntityClassification.MONSTER, new Biome.SpawnListEntry(EntityType.ZOMBIE_VILLAGER, 1, 1, 1));
-		addSpawn(EntityClassification.MONSTER, new Biome.SpawnListEntry(EntityType.HUSK, 80, 4, 4));
-	}
+  public static Biome DESERT_MIXED = DESERT_TEMPLATE.builder()
+      .addStructureFeature(StructureFeatures.PILLAGER_OUTPOST)
+      .depth(0.125F)
+      .scale(0.05F).build();
 
+
+  public static Biome DESERT_MIXED_HILLS = DESERT_TEMPLATE.builder()
+      .depth(0.45F)
+      .scale(0.3F).build();
 }

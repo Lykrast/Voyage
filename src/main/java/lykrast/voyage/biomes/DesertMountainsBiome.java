@@ -1,54 +1,37 @@
 package lykrast.voyage.biomes;
 
 import lykrast.voyage.ColorConstants;
-import net.minecraft.entity.EntityClassification;
+import lykrast.voyage.VoyageBiomes;
+import lykrast.voyage.biomebuilder.DefaultFeature;
+import lykrast.voyage.init.ConfiguredSurfaceBuilders;
 import net.minecraft.entity.EntityType;
 import net.minecraft.world.biome.Biome;
-import net.minecraft.world.biome.DefaultBiomeFeatures;
-import net.minecraft.world.gen.feature.Feature;
-import net.minecraft.world.gen.feature.IFeatureConfig;
-import net.minecraft.world.gen.feature.structure.MineshaftConfig;
-import net.minecraft.world.gen.feature.structure.MineshaftStructure;
-import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
+import net.minecraft.world.biome.MobSpawnInfo;
+import net.minecraft.world.gen.feature.structure.StructureFeatures;
 
-public class DesertMountainsBiome extends Biome {
-
-	public DesertMountainsBiome() {
-		super((new Biome.Builder())
-				.surfaceBuilder(SurfaceBuilder.DEFAULT, SurfaceBuilder.SAND_SAND_GRAVEL_CONFIG)
-				.precipitation(RainType.NONE).category(Category.DESERT)
-				.depth(1.0F).scale(0.5F).temperature(2.0F).downfall(0.0F)
-				.waterColor(ColorConstants.STANDARD_WATER).waterFogColor(ColorConstants.STANDARD_WATERFOG));
-		//Adapted from Desert Hills
-		addStructure(Feature.DESERT_PYRAMID.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG));
-		addStructure(Feature.MINESHAFT.withConfiguration(new MineshaftConfig(0.004D, MineshaftStructure.Type.NORMAL)));
-		addStructure(Feature.STRONGHOLD.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG));
-		DefaultBiomeFeatures.addCarvers(this);
-		DefaultBiomeFeatures.addStructures(this);
-		DefaultBiomeFeatures.addDesertLakes(this);
-		DefaultBiomeFeatures.addMonsterRooms(this);
-		DefaultBiomeFeatures.addStoneVariants(this);
-		DefaultBiomeFeatures.addOres(this);
-		DefaultBiomeFeatures.addSedimentDisks(this);
-		DefaultBiomeFeatures.addDefaultFlowers(this);
-		DefaultBiomeFeatures.addSparseGrass(this);
-		DefaultBiomeFeatures.addDeadBushes(this);
-		DefaultBiomeFeatures.addMushrooms(this);
-		DefaultBiomeFeatures.addExtraReedsPumpkinsCactus(this);
-		DefaultBiomeFeatures.addSprings(this);
-		DefaultBiomeFeatures.addDesertFeatures(this);
-		DefaultBiomeFeatures.addFreezeTopLayer(this);
-		addSpawn(EntityClassification.CREATURE, new Biome.SpawnListEntry(EntityType.RABBIT, 4, 2, 3));
-		addSpawn(EntityClassification.AMBIENT, new Biome.SpawnListEntry(EntityType.BAT, 10, 8, 8));
-		addSpawn(EntityClassification.MONSTER, new Biome.SpawnListEntry(EntityType.SPIDER, 100, 4, 4));
-		addSpawn(EntityClassification.MONSTER, new Biome.SpawnListEntry(EntityType.SKELETON, 100, 4, 4));
-		addSpawn(EntityClassification.MONSTER, new Biome.SpawnListEntry(EntityType.CREEPER, 100, 4, 4));
-		addSpawn(EntityClassification.MONSTER, new Biome.SpawnListEntry(EntityType.SLIME, 100, 4, 4));
-		addSpawn(EntityClassification.MONSTER, new Biome.SpawnListEntry(EntityType.ENDERMAN, 10, 1, 4));
-		addSpawn(EntityClassification.MONSTER, new Biome.SpawnListEntry(EntityType.WITCH, 5, 1, 1));
-		addSpawn(EntityClassification.MONSTER, new Biome.SpawnListEntry(EntityType.ZOMBIE, 19, 4, 4));
-		addSpawn(EntityClassification.MONSTER, new Biome.SpawnListEntry(EntityType.ZOMBIE_VILLAGER, 1, 1, 1));
-		addSpawn(EntityClassification.MONSTER, new Biome.SpawnListEntry(EntityType.HUSK, 80, 4, 4));
-	}
-
+public class DesertMountainsBiome {
+  public static Biome DESERT_MOUNTAINS = VoyageBiomes.BIOME_TEMPLATE.builder()
+      .surfaceBuilder(ConfiguredSurfaceBuilders.CONFIGURED_DESERT)
+      .precipitation(Biome.RainType.NONE)
+      .category(Biome.Category.DESERT)
+      .depth(1.0F)
+      .scale(0.5F)
+      .temperature(2.0F)
+      .downfall(0.0F)
+      .effects(VoyageBiomes.createDefaultBiomeAmbience()
+          .setWaterColor(ColorConstants.STANDARD_WATER)
+          .setWaterFogColor(ColorConstants.STANDARD_WATERFOG))
+      .addStructureFeature(StructureFeatures.DESERT_PYRAMID)
+      .addDefaultFeatures(DefaultFeature.LAND_CARVERS, DefaultFeature.DEFAULT_UNDERGROUND_STRUCTURES, DefaultFeature.DESERT_LAKES, DefaultFeature.DUNGEONS, DefaultFeature.DEFAULT_FLOWERS, DefaultFeature.BADLANDS_GRASS, DefaultFeature.DISKS, DefaultFeature.DESERT_DEAD_BUSHES, DefaultFeature.DEFAULT_MUSHROOMS, DefaultFeature.SPRINGS, DefaultFeature.DESERT_FEATURES, DefaultFeature.FROZEN_TOP_LAYER, DefaultFeature.BADLANDS_VEGETATION)
+      .addSpawnEntry(new MobSpawnInfo.Spawners(EntityType.RABBIT, 4, 2, 3))
+      .addSpawnEntry(new MobSpawnInfo.Spawners(EntityType.BAT, 10, 8, 8))
+      .addSpawnEntry(new MobSpawnInfo.Spawners(EntityType.SPIDER, 100, 4, 4))
+      .addSpawnEntry(new MobSpawnInfo.Spawners(EntityType.SKELETON, 100, 4, 4))
+      .addSpawnEntry(new MobSpawnInfo.Spawners(EntityType.CREEPER, 100, 4, 4))
+      .addSpawnEntry(new MobSpawnInfo.Spawners(EntityType.SLIME, 100, 4, 4))
+      .addSpawnEntry(new MobSpawnInfo.Spawners(EntityType.ENDERMAN, 10, 1, 4))
+      .addSpawnEntry(new MobSpawnInfo.Spawners(EntityType.WITCH, 5, 1, 1))
+      .addSpawnEntry(new MobSpawnInfo.Spawners(EntityType.ZOMBIE, 19, 4, 4))
+      .addSpawnEntry(new MobSpawnInfo.Spawners(EntityType.ZOMBIE_VILLAGER, 1, 1, 1))
+      .addSpawnEntry(new MobSpawnInfo.Spawners(EntityType.HUSK, 80, 4, 4)).build();
 }

@@ -1,56 +1,40 @@
 package lykrast.voyage.biomes;
 
 import lykrast.voyage.ColorConstants;
-import net.minecraft.entity.EntityClassification;
+import lykrast.voyage.VoyageBiomes;
+import lykrast.voyage.biomebuilder.DefaultFeature;
+import lykrast.voyage.init.ConfiguredSurfaceBuilders;
 import net.minecraft.entity.EntityType;
 import net.minecraft.world.biome.Biome;
-import net.minecraft.world.biome.DefaultBiomeFeatures;
-import net.minecraft.world.gen.feature.Feature;
-import net.minecraft.world.gen.feature.IFeatureConfig;
-import net.minecraft.world.gen.feature.structure.MineshaftConfig;
-import net.minecraft.world.gen.feature.structure.MineshaftStructure;
-import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
+import net.minecraft.world.biome.MobSpawnInfo;
 
-public class MountBiome extends Biome {
-
-	public MountBiome() {
-		super((new Biome.Builder())
-				.surfaceBuilder(SurfaceBuilder.MOUNTAIN, SurfaceBuilder.GRASS_DIRT_GRAVEL_CONFIG)
-				.precipitation(RainType.RAIN).category(Category.EXTREME_HILLS)
-				.depth(4.0F).scale(0.5F).temperature(0.2F).downfall(0.3F)
-				.waterColor(ColorConstants.STANDARD_WATER).waterFogColor(ColorConstants.STANDARD_WATERFOG));
-		//Adapted from Mountains, Gravelly Mountains and Gravelly Mountains+
-		addStructure(Feature.MINESHAFT.withConfiguration(new MineshaftConfig(0.004D, MineshaftStructure.Type.NORMAL)));
-		addStructure(Feature.STRONGHOLD.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG));
-		DefaultBiomeFeatures.addCarvers(this);
-		DefaultBiomeFeatures.addStructures(this);
-		DefaultBiomeFeatures.addLakes(this);
-		DefaultBiomeFeatures.addMonsterRooms(this);
-		DefaultBiomeFeatures.addStoneVariants(this);
-		DefaultBiomeFeatures.addOres(this);
-		DefaultBiomeFeatures.addSedimentDisks(this);
-		DefaultBiomeFeatures.addDefaultFlowers(this);
-		DefaultBiomeFeatures.addSparseGrass(this);
-		DefaultBiomeFeatures.addMushrooms(this);
-		DefaultBiomeFeatures.addReedsAndPumpkins(this);
-		DefaultBiomeFeatures.addSprings(this);
-		DefaultBiomeFeatures.addExtraEmeraldOre(this);
-		DefaultBiomeFeatures.addInfestedStone(this);
-		DefaultBiomeFeatures.addFreezeTopLayer(this);
-		addSpawn(EntityClassification.CREATURE, new Biome.SpawnListEntry(EntityType.SHEEP, 12, 4, 4));
-		addSpawn(EntityClassification.CREATURE, new Biome.SpawnListEntry(EntityType.PIG, 10, 4, 4));
-		addSpawn(EntityClassification.CREATURE, new Biome.SpawnListEntry(EntityType.CHICKEN, 10, 4, 4));
-		addSpawn(EntityClassification.CREATURE, new Biome.SpawnListEntry(EntityType.COW, 8, 4, 4));
-		addSpawn(EntityClassification.CREATURE, new Biome.SpawnListEntry(EntityType.LLAMA, 5, 4, 6));
-		addSpawn(EntityClassification.AMBIENT, new Biome.SpawnListEntry(EntityType.BAT, 10, 8, 8));
-		addSpawn(EntityClassification.MONSTER, new Biome.SpawnListEntry(EntityType.SPIDER, 100, 4, 4));
-		addSpawn(EntityClassification.MONSTER, new Biome.SpawnListEntry(EntityType.ZOMBIE, 95, 4, 4));
-		addSpawn(EntityClassification.MONSTER, new Biome.SpawnListEntry(EntityType.ZOMBIE_VILLAGER, 5, 1, 1));
-		addSpawn(EntityClassification.MONSTER, new Biome.SpawnListEntry(EntityType.SKELETON, 100, 4, 4));
-		addSpawn(EntityClassification.MONSTER, new Biome.SpawnListEntry(EntityType.CREEPER, 100, 4, 4));
-		addSpawn(EntityClassification.MONSTER, new Biome.SpawnListEntry(EntityType.SLIME, 100, 4, 4));
-		addSpawn(EntityClassification.MONSTER, new Biome.SpawnListEntry(EntityType.ENDERMAN, 10, 1, 4));
-		addSpawn(EntityClassification.MONSTER, new Biome.SpawnListEntry(EntityType.WITCH, 5, 1, 1));
-	}
+public class MountBiome {
+  public static Biome MOUNT = VoyageBiomes.BIOME_TEMPLATE.builder()
+      .surfaceBuilder(ConfiguredSurfaceBuilders.CONFIGURED_MOUNTAIN)
+      .effects(VoyageBiomes.createDefaultBiomeAmbience()
+          .setWaterColor(ColorConstants.STANDARD_WATER)
+          .setWaterFogColor(ColorConstants.STANDARD_WATERFOG))
+      .precipitation(Biome.RainType.RAIN)
+      .category(Biome.Category.EXTREME_HILLS)
+      .depth(4.0F)
+      .scale(0.5F)
+      .temperature(0.2F)
+      .downfall(0.3F)
+      .addDefaultFeatures(DefaultFeature.DEFAULT_UNDERGROUND_STRUCTURES, DefaultFeature.LAND_CARVERS, DefaultFeature.LAKES, DefaultFeature.DUNGEONS, DefaultFeature.DISKS, DefaultFeature.DEFAULT_FLOWERS, DefaultFeature.DEFAULT_GRASS, DefaultFeature.DEFAULT_MUSHROOMS, DefaultFeature.DEFAULT_VEGETATION, DefaultFeature.SPRINGS, DefaultFeature.INFECTED_STONE, DefaultFeature.FROZEN_TOP_LAYER, DefaultFeature.EMERALD_ORE)
+      .addSpawnEntry(new MobSpawnInfo.Spawners(EntityType.SHEEP, 12, 4, 4))
+      .addSpawnEntry(new MobSpawnInfo.Spawners(EntityType.PIG, 10, 4, 4))
+      .addSpawnEntry(new MobSpawnInfo.Spawners(EntityType.CHICKEN, 10, 4, 4))
+      .addSpawnEntry(new MobSpawnInfo.Spawners(EntityType.COW, 8, 4, 4))
+      .addSpawnEntry(new MobSpawnInfo.Spawners(EntityType.LLAMA, 5, 4, 6))
+      .addSpawnEntry(new MobSpawnInfo.Spawners(EntityType.BAT, 10, 8, 8))
+      .addSpawnEntry(new MobSpawnInfo.Spawners(EntityType.SPIDER, 100, 4, 4))
+      .addSpawnEntry(new MobSpawnInfo.Spawners(EntityType.ZOMBIE, 95, 4, 4))
+      .addSpawnEntry(new MobSpawnInfo.Spawners(EntityType.ZOMBIE_VILLAGER, 5, 1, 1))
+      .addSpawnEntry(new MobSpawnInfo.Spawners(EntityType.SKELETON, 100, 4, 4))
+      .addSpawnEntry(new MobSpawnInfo.Spawners(EntityType.CREEPER, 100, 4, 4))
+      .addSpawnEntry(new MobSpawnInfo.Spawners(EntityType.SLIME, 100, 4, 4))
+      .addSpawnEntry(new MobSpawnInfo.Spawners(EntityType.ENDERMAN, 10, 1, 4))
+      .addSpawnEntry(new MobSpawnInfo.Spawners(EntityType.WITCH, 5, 1, 1))
+      .build();
 
 }

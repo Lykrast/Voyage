@@ -1,80 +1,77 @@
 package lykrast.voyage;
 
-import static net.minecraftforge.common.BiomeDictionary.Type.BEACH;
-import static net.minecraftforge.common.BiomeDictionary.Type.COLD;
-import static net.minecraftforge.common.BiomeDictionary.Type.DENSE;
-import static net.minecraftforge.common.BiomeDictionary.Type.DRY;
-import static net.minecraftforge.common.BiomeDictionary.Type.FOREST;
-import static net.minecraftforge.common.BiomeDictionary.Type.HILLS;
-import static net.minecraftforge.common.BiomeDictionary.Type.HOT;
-import static net.minecraftforge.common.BiomeDictionary.Type.MOUNTAIN;
-import static net.minecraftforge.common.BiomeDictionary.Type.OVERWORLD;
-import static net.minecraftforge.common.BiomeDictionary.Type.PLAINS;
-import static net.minecraftforge.common.BiomeDictionary.Type.SANDY;
-import static net.minecraftforge.common.BiomeDictionary.Type.SNOWY;
-import static net.minecraftforge.common.BiomeDictionary.Type.SPARSE;
-import static net.minecraftforge.common.BiomeDictionary.Type.SWAMP;
-import static net.minecraftforge.common.BiomeDictionary.Type.WASTELAND;
-import static net.minecraftforge.common.BiomeDictionary.Type.WET;
-
-import lykrast.voyage.biomes.BogBiome;
-import lykrast.voyage.biomes.DesertMixedBiome;
-import lykrast.voyage.biomes.DesertMixedHillsBiome;
-import lykrast.voyage.biomes.DesertMountainsBiome;
-import lykrast.voyage.biomes.DesertPolarBiome;
-import lykrast.voyage.biomes.FlowerPlainsBiome;
-import lykrast.voyage.biomes.ForestLushBiome;
-import lykrast.voyage.biomes.LagoonColdBiome;
-import lykrast.voyage.biomes.LagoonLukewarmBiome;
-import lykrast.voyage.biomes.LagoonWarmBiome;
-import lykrast.voyage.biomes.MountBiome;
-import lykrast.voyage.biomes.RockFieldBiome;
-import lykrast.voyage.biomes.RockyPeaksBiome;
-import lykrast.voyage.biomes.SteppeBiome;
+import com.tterrag.registrate.util.entry.RegistryEntry;
+import lykrast.voyage.biomebuilder.BiomeTemplate;
+import lykrast.voyage.biomebuilder.TerraformBiomeBuilder;
 import lykrast.voyage.config.BiomeConfig;
 import lykrast.voyage.config.ConfigManager;
+import lykrast.voyage.init.ConfiguredSurfaceBuilders;
+import lykrast.voyage.init.ModBiomes;
+import net.minecraft.util.RegistryKey;
+import net.minecraft.util.math.MathHelper;
+import net.minecraft.util.registry.Registry;
 import net.minecraft.world.biome.Biome;
+import net.minecraft.world.biome.BiomeAmbience;
+import net.minecraft.world.gen.feature.structure.StructureFeatures;
 import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.common.BiomeDictionary.Type;
 import net.minecraftforge.common.BiomeManager;
 import net.minecraftforge.common.BiomeManager.BiomeType;
 import net.minecraftforge.event.RegistryEvent;
+import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.registries.IForgeRegistry;
+
+import static lykrast.voyage.biomebuilder.DefaultFeature.*;
+import static net.minecraftforge.common.BiomeDictionary.Type.*;
 
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
-//@ObjectHolder(Voyage.MODID)
 public class VoyageBiomes {
-	@SubscribeEvent
-	public static void registerBiomes(final RegistryEvent.Register<Biome> event) {
-		IForgeRegistry<Biome> reg = event.getRegistry();
-		register(reg, new MountBiome(), ConfigManager.MOUNT, false, BiomeType.COOL, OVERWORLD, MOUNTAIN, COLD);
-		register(reg, new BogBiome(), ConfigManager.BOG, false, BiomeType.WARM, OVERWORLD, WET, SWAMP);
-		register(reg, new LagoonWarmBiome(), ConfigManager.LAGOON_WARM, false, BiomeType.WARM, OVERWORLD, BEACH, WET, HOT);
-		register(reg, new LagoonLukewarmBiome(), ConfigManager.LAGOON_LUKEWARM, false, BiomeType.WARM, OVERWORLD, BEACH, WET);
-		register(reg, new LagoonColdBiome(), ConfigManager.LAGOON_COLD, false, BiomeType.COOL, OVERWORLD, BEACH, WET, COLD);
-		register(reg, new SteppeBiome(), ConfigManager.STEPPE, false, BiomeType.WARM, OVERWORLD, PLAINS, SPARSE, HOT, DRY);
-		register(reg, new RockyPeaksBiome(), ConfigManager.ROCKY_PEAKS, false, BiomeType.WARM, OVERWORLD, MOUNTAIN);
-		register(reg, new DesertMixedBiome(), ConfigManager.DESERT_MIXED, false, BiomeType.DESERT, OVERWORLD, SANDY, HOT, DRY);
-		register(reg, new DesertMixedHillsBiome(), ConfigManager.DESERT_MIXED_HILLS, false, BiomeType.DESERT, OVERWORLD, SANDY, HILLS, HOT, DRY);
-		register(reg, new FlowerPlainsBiome(), ConfigManager.FLOWER_PLAINS, true, BiomeType.WARM, OVERWORLD, PLAINS);
-		register(reg, new DesertMountainsBiome(), ConfigManager.DESERT_MOUNTAINS, false, BiomeType.DESERT, OVERWORLD, SANDY, HILLS, MOUNTAIN, HOT, DRY);
-		register(reg, new DesertPolarBiome(), ConfigManager.DESERT_POLAR, false, BiomeType.ICY, OVERWORLD, SNOWY, WASTELAND, COLD, DRY);
-		register(reg, new ForestLushBiome(), ConfigManager.FOREST_LUSH, true, BiomeType.WARM, OVERWORLD, FOREST, DENSE);
-		register(reg, new RockFieldBiome(), ConfigManager.ROCK_FIELD, false, BiomeType.WARM, OVERWORLD, HILLS, DRY);
-	}
-	
-	//Convenience
-	private static Biome register(IForgeRegistry<Biome> reg, Biome biome, BiomeConfig config, boolean canSpawn, BiomeType managerType, Type... dictTypes) {
-		//Config part from Traverse, nooby said is cool (and MIT)
-		//https://github.com/MysticMods/Traverse/blob/master/src/main/java/epicsquid/traverse/RegistryManager.java
-		reg.register(biome.setRegistryName(Voyage.loc(config.name())));
-		if (config.shouldSpawn()) {
-			BiomeManager.addBiome(managerType, new BiomeManager.BiomeEntry(biome, config.weight()));
-			if (canSpawn) BiomeManager.addSpawnBiome(biome);
-			BiomeDictionary.addTypes(biome, dictTypes);
-		}
-		return biome;
-	}
+  public static final BiomeTemplate BIOME_TEMPLATE = new BiomeTemplate(TerraformBiomeBuilder.create()
+      .surfaceBuilder(ConfiguredSurfaceBuilders.CONFIGURED_DEFAULT_GRASS)
+      .addDefaultFeatures(LAND_CARVERS, DEFAULT_UNDERGROUND_STRUCTURES, DUNGEONS, MINEABLES, ORES, DISKS, DEFAULT_MUSHROOMS, DEFAULT_VEGETATION, SPRINGS, FROZEN_TOP_LAYER)
+      .addStructureFeature(StructureFeatures.STRONGHOLD)
+      .addStructureFeature(StructureFeatures.MINESHAFT)
+      .precipitation(Biome.RainType.RAIN)
+      .effects(createDefaultBiomeAmbience()));
+
+  @SubscribeEvent(priority = EventPriority.LOW)
+  public static void registerBiomes(final RegistryEvent.Register<Biome> event) {
+    register(ModBiomes.MOUNT, ConfigManager.MOUNT, BiomeType.COOL, OVERWORLD, MOUNTAIN, COLD);
+    register(ModBiomes.BOG, ConfigManager.BOG, BiomeType.WARM, OVERWORLD, WET, SWAMP);
+    register(ModBiomes.LAGOON_WARM, ConfigManager.LAGOON_WARM, BiomeType.WARM, OVERWORLD, BEACH, WET, HOT);
+    register(ModBiomes.LAGOON_LUKEWARM, ConfigManager.LAGOON_LUKEWARM, BiomeType.WARM, OVERWORLD, BEACH, WET);
+    register(ModBiomes.LAGOON_COLD, ConfigManager.LAGOON_COLD, BiomeType.COOL, OVERWORLD, BEACH, WET, COLD);
+    register(ModBiomes.STEPPE, ConfigManager.STEPPE, BiomeType.WARM, OVERWORLD, PLAINS, SPARSE, HOT, DRY);
+    register(ModBiomes.ROCKY_PEAKS, ConfigManager.ROCKY_PEAKS, BiomeType.WARM, OVERWORLD, MOUNTAIN);
+    register(ModBiomes.DESERT_MIXED, ConfigManager.DESERT_MIXED, BiomeType.DESERT, OVERWORLD, SANDY, HOT, DRY);
+    register(ModBiomes.DESERT_MIXED_HILLS, ConfigManager.DESERT_MIXED_HILLS, BiomeType.DESERT, OVERWORLD, SANDY, HILLS, HOT, DRY);
+    register(ModBiomes.FLOWER_PLAINS, ConfigManager.FLOWER_PLAINS, BiomeType.WARM, OVERWORLD, PLAINS);
+    register(ModBiomes.DESERT_MOUNTAINS, ConfigManager.DESERT_MOUNTAINS, BiomeType.DESERT, OVERWORLD, SANDY, HILLS, MOUNTAIN, HOT, DRY);
+    register(ModBiomes.DESERT_POLAR, ConfigManager.DESERT_POLAR, BiomeType.ICY, OVERWORLD, SNOWY, WASTELAND, COLD, DRY);
+    register(ModBiomes.FOREST_LUSH, ConfigManager.FOREST_LUSH, BiomeType.WARM, OVERWORLD, FOREST, DENSE);
+    register(ModBiomes.ROCK_FIELD, ConfigManager.ROCK_FIELD, BiomeType.WARM, OVERWORLD, HILLS, DRY);
+  }
+  //Convenience
+  private static void register(Biome b, BiomeConfig config, BiomeType managerType, Type... dictTypes) {
+    RegistryKey<Biome> biome = RegistryKey.getOrCreateKey(Registry.BIOME_KEY, b.getRegistryName());
+    if (config.shouldSpawn()) {
+      BiomeManager.addBiome(managerType, new BiomeManager.BiomeEntry(biome, config.weight()));
+      BiomeDictionary.addTypes(biome, dictTypes);
+    }
+  }
+
+  private static int getSkyColor(float temperature) {
+    float f = temperature / 3.0F;
+    f = MathHelper.clamp(f, -1.0F, 1.0F);
+    return MathHelper.hsvToRGB(0.62222224F - f * 0.05F, 0.5F + f * 0.1F, 1.0F);
+  }
+
+  public static BiomeAmbience.Builder createDefaultBiomeAmbience() {
+    return new BiomeAmbience.Builder()
+        .setWaterColor(0x3F76E4)
+        .setWaterFogColor(0x50533)
+        .withSkyColor(getSkyColor(0.2F))
+        .setFogColor(0xC0D8FF);
+  }
 }
