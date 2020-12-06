@@ -33,7 +33,7 @@ public class DesertPolarBiome {
           DefaultBiomeFeatures::withLavaAndWaterSprings, // addSprings
           DefaultBiomeFeatures::withFrozenTopLayer
       )
-      .addStructureFeature(StructureFeatures.RUINED_PORTAL_DESERT)
+      .addStructureFeature(StructureFeatures.RUINED_PORTAL)
       .addSpawnFunction(DefaultBiomeFeatures::withSnowyBiomeMobs)
       .build();
 }
