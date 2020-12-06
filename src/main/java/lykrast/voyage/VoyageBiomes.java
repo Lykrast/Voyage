@@ -1,6 +1,5 @@
 package lykrast.voyage;
 
-import com.tterrag.registrate.util.entry.RegistryEntry;
 import lykrast.voyage.biomebuilder.BiomeTemplate;
 import lykrast.voyage.biomebuilder.TerraformBiomeBuilder;
 import lykrast.voyage.config.BiomeConfig;
@@ -52,6 +51,7 @@ public class VoyageBiomes {
     register(ModBiomes.FOREST_LUSH, ConfigManager.FOREST_LUSH, BiomeType.WARM, OVERWORLD, FOREST, DENSE);
     register(ModBiomes.ROCK_FIELD, ConfigManager.ROCK_FIELD, BiomeType.WARM, OVERWORLD, HILLS, DRY);
   }
+
   //Convenience
   private static void register(Biome b, BiomeConfig config, BiomeType managerType, Type... dictTypes) {
     RegistryKey<Biome> biome = RegistryKey.getOrCreateKey(Registry.BIOME_KEY, b.getRegistryName());
