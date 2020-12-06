@@ -1,6 +1,7 @@
 package lykrast.voyage.biomes;
 
 import com.mojang.datafixers.util.Pair;
+import lykrast.voyage.VoyageRegistry;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.BiomeAmbience;
 import net.minecraft.world.biome.BiomeGenerationSettings;
@@ -107,6 +108,8 @@ public final class BiomeBuilder implements Cloneable {
     builder.downfall(this.downfall);
     builder.precipitation(this.precipitation);
     builder.temperature(this.temperature);
+
+    this.effects.withSkyColor(VoyageRegistry.getSkyColor(this.temperature));
     builder.setEffects(this.effects.build());
 
     BiomeGenerationSettings.Builder generationSettings = new BiomeGenerationSettings.Builder().withSurfaceBuilder(this.surfaceBuilder);
