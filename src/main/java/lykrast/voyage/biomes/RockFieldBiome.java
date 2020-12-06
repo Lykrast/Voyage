@@ -33,7 +33,7 @@ public class RockFieldBiome {
           DefaultBiomeFeatures::withOverworldOres,
           DefaultBiomeFeatures::withDisks,
           DefaultBiomeFeatures::withBadlandsGrassAndBush,
-          DefaultBiomeFeatures::withMushroomBiomeVegetation,
+          DefaultBiomeFeatures::withNormalMushroomGeneration,
           DefaultBiomeFeatures::withLavaAndWaterSprings,
           DefaultBiomeFeatures::withFrozenTopLayer
       )

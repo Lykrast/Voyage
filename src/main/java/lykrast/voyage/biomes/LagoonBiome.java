@@ -42,6 +42,9 @@ public class LagoonBiome {
       .addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Features.SEAGRASS_COLD)
       .addSpawnFunction((o) -> DefaultBiomeFeatures.withOceanMobs(o, 3, 4, 15))
       .addSpawnEntry(new MobSpawnInfo.Spawners(EntityType.SALMON, 15, 1, 5))
+      .addDefaultFeatureFunction(
+          DefaultBiomeFeatures::withNormalGrassPatch
+      )
       .depth(-0.3F)
       .scale(0.0125F)
       .temperature(0.5F)
@@ -81,7 +84,7 @@ public class LagoonBiome {
           (o) -> DefaultBiomeFeatures.withOceanMobs(o, 1, 4, 10),
           (o) -> DefaultBiomeFeatures.withWarmOceanMobs(o, 10, 4),
           (o) -> o.withSpawner(EntityClassification.CREATURE, new MobSpawnInfo.Spawners(EntityType.TURTLE, 5, 2, 5))
-          )
+      )
       .addSpawnEntry(new MobSpawnInfo.Spawners(EntityType.DOLPHIN, 1, 1, 2))
       .addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Features.WARM_OCEAN_VEGETATION)
       .addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Features.SEAGRASS_WARM)
