@@ -11,7 +11,7 @@ import net.minecraft.world.biome.DefaultBiomeFeatures;
 import net.minecraft.world.biome.MobSpawnInfo;
 import net.minecraft.world.gen.feature.structure.StructureFeatures;
 
-public class DesertMixedBiome {
+public class DesertBiome {
   public static final BiomeTemplate DESERT_TEMPLATE = new BiomeTemplate(VoyageBiomes.BIOME_TEMPLATE.builder()
       .surfaceBuilder(ConfiguredSurfaceBuilders.CONFIGURED_DESERT_MIXED)
       .precipitation(Biome.RainType.NONE)
@@ -19,8 +19,6 @@ public class DesertMixedBiome {
       .effects(VoyageBiomes.createDefaultBiomeAmbience()
           .setWaterColor(ColorConstants.STANDARD_WATER)
           .setWaterFogColor(ColorConstants.STANDARD_WATERFOG))
-      .addStructureFeature(StructureFeatures.VILLAGE_DESERT)
-      .addStructureFeature(StructureFeatures.DESERT_PYRAMID)
       .addDefaultFeatureFunctions(DefaultBiomeFeatures::withCavesAndCanyons, // addCarvers
           DefaultBiomeFeatures::withStrongholdAndMineshaft, // not equivalent to add structures
           DefaultBiomeFeatures::withLavaLakes, // addDesertLakes
@@ -44,11 +42,21 @@ public class DesertMixedBiome {
 
   public static Biome DESERT_MIXED = DESERT_TEMPLATE.builder()
       .addStructureFeature(StructureFeatures.PILLAGER_OUTPOST)
+      .addStructureFeature(StructureFeatures.VILLAGE_DESERT)
+      .addStructureFeature(StructureFeatures.DESERT_PYRAMID)
       .depth(0.125F)
-      .scale(0.05F).build();
+      .scale(0.05F)
+      .build();
 
 
   public static Biome DESERT_MIXED_HILLS = DESERT_TEMPLATE.builder()
       .depth(0.45F)
-      .scale(0.3F).build();
+      .scale(0.3F)
+      .build();
+
+  public static Biome DESERT_MOUNTAINS = DESERT_TEMPLATE.builder()
+      .surfaceBuilder(ConfiguredSurfaceBuilders.CONFIGURED_DESERT)
+      .depth(1.0f)
+      .scale(0.5f)
+      .build();
 }

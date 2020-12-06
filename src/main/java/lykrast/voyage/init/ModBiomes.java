@@ -23,10 +23,10 @@ public class ModBiomes {
   public static Biome LAGOON_COLD = register("lagoon_cold", () -> LagoonBiome.LAGOON_COLD);
   public static Biome STEPPE = register("steppe", () -> SteppeBiome.STEPPE);
   public static Biome ROCKY_PEAKS = register("rocky_peaks", () -> RockyPeaksBiome.ROCKY_PEAKS);
-  public static Biome DESERT_MIXED = register("desert_mixed", () -> DesertMixedBiome.DESERT_MIXED);
-  public static Biome DESERT_MIXED_HILLS = register("desert_mixed_hills", () -> DesertMixedBiome.DESERT_MIXED_HILLS);
+  public static Biome DESERT_MIXED = register("desert_mixed", () -> DesertBiome.DESERT_MIXED);
+  public static Biome DESERT_MIXED_HILLS = register("desert_mixed_hills", () -> DesertBiome.DESERT_MIXED_HILLS);
   public static Biome FLOWER_PLAINS = register("flower_plains", () -> FlowerPlainsBiome.FLOWER_PLAINS);
-  public static Biome DESERT_MOUNTAINS = register("desert_mountains", () -> DesertMountainsBiome.DESERT_MOUNTAINS);
+  public static Biome DESERT_MOUNTAINS = register("desert_mountains", () -> DesertBiome.DESERT_MOUNTAINS);
   public static Biome DESERT_POLAR = register("desert_polar", () -> DesertPolarBiome.DESERT_POLAR);
   public static Biome FOREST_LUSH = register("forest_lush", () -> ForestLushBiome.FOREST_LUSH);
   public static Biome ROCK_FIELD = register("rock_field", () -> RockFieldBiome.ROCK_FIELD);
