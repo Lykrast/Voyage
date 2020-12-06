@@ -7,6 +7,7 @@ import lykrast.voyage.biomebuilder.DefaultFeature;
 import lykrast.voyage.init.ConfiguredSurfaceBuilders;
 import net.minecraft.entity.EntityType;
 import net.minecraft.world.biome.Biome;
+import net.minecraft.world.biome.DefaultBiomeFeatures;
 import net.minecraft.world.biome.MobSpawnInfo;
 import net.minecraft.world.gen.feature.structure.StructureFeatures;
 
@@ -20,19 +21,24 @@ public class DesertMixedBiome {
           .setWaterFogColor(ColorConstants.STANDARD_WATERFOG))
       .addStructureFeature(StructureFeatures.VILLAGE_DESERT)
       .addStructureFeature(StructureFeatures.DESERT_PYRAMID)
-      .addDefaultFeatures(DefaultFeature.LAND_CARVERS, DefaultFeature.DEFAULT_UNDERGROUND_STRUCTURES, DefaultFeature.DESERT_LAKES, DefaultFeature.DUNGEONS, DefaultFeature.DEFAULT_FLOWERS, DefaultFeature.BADLANDS_GRASS, DefaultFeature.DISKS, DefaultFeature.DESERT_DEAD_BUSHES, DefaultFeature.DEFAULT_MUSHROOMS, DefaultFeature.SPRINGS, DefaultFeature.DESERT_FEATURES, DefaultFeature.FROZEN_TOP_LAYER, DefaultFeature.BADLANDS_VEGETATION)
+      .addDefaultFeatureFunctions(DefaultBiomeFeatures::withCavesAndCanyons, // addCarvers
+          DefaultBiomeFeatures::withStrongholdAndMineshaft, // not equivalent to add structures
+          DefaultBiomeFeatures::withLavaLakes, // addDesertLakes
+          DefaultBiomeFeatures::withMonsterRoom, // addMonsterRooms
+          DefaultBiomeFeatures::withCommonOverworldBlocks, // addStoneVariants
+          DefaultBiomeFeatures::withOverworldOres, // addOres
+          DefaultBiomeFeatures::withDisks, // addSedimentDisks
+          DefaultBiomeFeatures::withDefaultFlowers, // addDefaultFlowers
+          DefaultBiomeFeatures::withBadlandsGrassAndBush, // Possibly Add Sparse Grass and Add Dead Bushes
+          DefaultBiomeFeatures::withNormalMushroomGeneration, // addMushrooms
+          DefaultBiomeFeatures::withDesertVegetation, // addExtraReedsPumpkinsCactus
+          DefaultBiomeFeatures::withLavaAndWaterSprings, // addSprings
+          DefaultBiomeFeatures::withDesertWells, // addDesertFeatures
+          DefaultBiomeFeatures::withFossils, // second part of addDesertFeatures
+          DefaultBiomeFeatures::withFrozenTopLayer
+      )
       .addStructureFeature(StructureFeatures.RUINED_PORTAL_DESERT)
-      .addSpawnEntry(new MobSpawnInfo.Spawners(EntityType.RABBIT, 4, 2, 3))
-      .addSpawnEntry(new MobSpawnInfo.Spawners(EntityType.BAT, 10, 8, 8))
-      .addSpawnEntry(new MobSpawnInfo.Spawners(EntityType.SPIDER, 100, 4, 4))
-      .addSpawnEntry(new MobSpawnInfo.Spawners(EntityType.SKELETON, 100, 4, 4))
-      .addSpawnEntry(new MobSpawnInfo.Spawners(EntityType.CREEPER, 100, 4, 4))
-      .addSpawnEntry(new MobSpawnInfo.Spawners(EntityType.SLIME, 100, 4, 4))
-      .addSpawnEntry(new MobSpawnInfo.Spawners(EntityType.ENDERMAN, 10, 1, 4))
-      .addSpawnEntry(new MobSpawnInfo.Spawners(EntityType.WITCH, 5, 1, 1))
-      .addSpawnEntry(new MobSpawnInfo.Spawners(EntityType.ZOMBIE, 19, 4, 4))
-      .addSpawnEntry(new MobSpawnInfo.Spawners(EntityType.ZOMBIE_VILLAGER, 1, 1, 1))
-      .addSpawnEntry(new MobSpawnInfo.Spawners(EntityType.HUSK, 80, 4, 4))
+      .addSpawnFunction(DefaultBiomeFeatures::withDesertMobs)
       .temperature(2.0F)
       .downfall(0.0F));
 
