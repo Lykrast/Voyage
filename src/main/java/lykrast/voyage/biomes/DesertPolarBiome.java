@@ -34,6 +34,7 @@ public class DesertPolarBiome {
           DefaultBiomeFeatures::withFrozenTopLayer
       )
       .addStructureFeature(StructureFeatures.RUINED_PORTAL)
+      .addStructureFeature(StructureFeatures.IGLOO)
       .addSpawnFunction(DefaultBiomeFeatures::withSnowyBiomeMobs)
       .build();
 }
