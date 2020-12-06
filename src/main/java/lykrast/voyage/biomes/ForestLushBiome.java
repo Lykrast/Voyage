@@ -2,13 +2,12 @@ package lykrast.voyage.biomes;
 
 import lykrast.voyage.ColorConstants;
 import lykrast.voyage.VoyageBiomes;
-import lykrast.voyage.biomebuilder.DefaultFeature;
 import lykrast.voyage.init.ConfiguredSurfaceBuilders;
-import net.minecraft.entity.EntityType;
 import net.minecraft.world.biome.Biome;
-import net.minecraft.world.biome.MobSpawnInfo;
+import net.minecraft.world.biome.DefaultBiomeFeatures;
 import net.minecraft.world.gen.GenerationStage;
 import net.minecraft.world.gen.feature.Features;
+import net.minecraft.world.gen.feature.structure.StructureFeatures;
 
 public class ForestLushBiome {
   public static Biome FOREST_LUSH = VoyageBiomes.BIOME_TEMPLATE.builder()
@@ -24,23 +23,27 @@ public class ForestLushBiome {
           .withFoliageColor(0x2FB519)
           .setWaterColor(ColorConstants.OCEAN_LUKEWARM_WATER)
           .setWaterFogColor(ColorConstants.OCEAN_LUKEWARM_WATERFOG))
-      .addDefaultFeatures(DefaultFeature.LAND_CARVERS, DefaultFeature.DEFAULT_UNDERGROUND_STRUCTURES, DefaultFeature.LAKES, DefaultFeature.SPRINGS, DefaultFeature.DUNGEONS, DefaultFeature.DISKS, DefaultFeature.DEFAULT_FLOWERS, DefaultFeature.DEFAULT_MUSHROOMS, DefaultFeature.EXTRA_DEFAULT_FLOWERS, DefaultFeature.DEFAULT_VEGETATION, DefaultFeature.JUNGLE_GRASS, DefaultFeature.FOREST_TREES, DefaultFeature.FROZEN_TOP_LAYER)
-      .addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Features.FOREST_FLOWER_VEGETATION)
+      .addDefaultFeatureFunctions(
+          DefaultBiomeFeatures::withCavesAndCanyons, // addCarvers
+          DefaultBiomeFeatures::withStrongholdAndMineshaft, // addStructures
+          DefaultBiomeFeatures::withLavaAndWaterLakes, // addLakes
+          DefaultBiomeFeatures::withLavaAndWaterSprings, // addSprings
+          DefaultBiomeFeatures::withMonsterRoom, // addMonsterRooms
+          DefaultBiomeFeatures::withAllForestFlowerGeneration, // addDoubleFlowers
+          DefaultBiomeFeatures::withCommonOverworldBlocks, // addStoneVariants
+          DefaultBiomeFeatures::withOverworldOres, // addOres
+          DefaultBiomeFeatures::withDisks, // addSedimentDisks
+          DefaultBiomeFeatures::withJungleGrass,
+          DefaultBiomeFeatures::withSugarCaneAndPumpkins,
+          DefaultBiomeFeatures::withTallBirches, // tall birch trees
+          DefaultBiomeFeatures::withFrozenTopLayer
+      )
+      .addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Features.FLOWER_FOREST) // addExtraDefaultFlowers
       .addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Features.PATCH_MELON)
-      .addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Features.FOREST_FLOWER_TREES)
-      .addSpawnEntry(new MobSpawnInfo.Spawners(EntityType.SHEEP, 12, 4, 4))
-      .addSpawnEntry(new MobSpawnInfo.Spawners(EntityType.PIG, 10, 4, 4))
-      .addSpawnEntry(new MobSpawnInfo.Spawners(EntityType.CHICKEN, 10, 4, 4))
-      .addSpawnEntry(new MobSpawnInfo.Spawners(EntityType.COW, 8, 4, 4))
-      .addSpawnEntry(new MobSpawnInfo.Spawners(EntityType.WOLF, 5, 4, 4))
-      .addSpawnEntry(new MobSpawnInfo.Spawners(EntityType.BAT, 10, 8, 8))
-      .addSpawnEntry(new MobSpawnInfo.Spawners(EntityType.SPIDER, 100, 4, 4))
-      .addSpawnEntry(new MobSpawnInfo.Spawners(EntityType.ZOMBIE, 95, 4, 4))
-      .addSpawnEntry(new MobSpawnInfo.Spawners(EntityType.ZOMBIE_VILLAGER, 5, 1, 1))
-      .addSpawnEntry(new MobSpawnInfo.Spawners(EntityType.SKELETON, 100, 4, 4))
-      .addSpawnEntry(new MobSpawnInfo.Spawners(EntityType.CREEPER, 100, 4, 4))
-      .addSpawnEntry(new MobSpawnInfo.Spawners(EntityType.SLIME, 100, 4, 4))
-      .addSpawnEntry(new MobSpawnInfo.Spawners(EntityType.ENDERMAN, 10, 1, 4))
-      .addSpawnEntry(new MobSpawnInfo.Spawners(EntityType.WITCH, 5, 1, 1))
+      .addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Features.FANCY_OAK_BEES_002)
+      .addStructureFeature(StructureFeatures.RUINED_PORTAL)
+      .addSpawnFunctions(DefaultBiomeFeatures::withPassiveMobs, // Sheep, pig, chicken, cow
+          DefaultBiomeFeatures::withBatsAndHostiles // Bats etc
+      )
       .build();
 }

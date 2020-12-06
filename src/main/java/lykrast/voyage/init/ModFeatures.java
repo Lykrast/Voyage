@@ -14,6 +14,7 @@ import net.minecraft.world.gen.placement.Placement;
 
 @SuppressWarnings("unchecked")
 public class ModFeatures {
+  public static ConfiguredFeature<?, ?> LUSH_TREES = register("lush_trees",
   public static ConfiguredFeature<?, ?> ROCK_BOULDERS = register("rock_boulders", Feature.RANDOM_SELECTOR.withConfiguration(
         new MultipleRandomFeatureConfig(
       ImmutableList.of(

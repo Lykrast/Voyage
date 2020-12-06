@@ -33,10 +33,10 @@ public class FlowerPlainsBiome {
           DefaultBiomeFeatures::withNormalMushroomGeneration, // addMushrooms
           DefaultBiomeFeatures::withSugarCaneAndPumpkins, // addReedsandPumpkins
           DefaultBiomeFeatures::withLavaAndWaterSprings, // addSprings
+          DefaultBiomeFeatures::withAllForestFlowerGeneration, // addDoubleFlowers
           DefaultBiomeFeatures::withFrozenTopLayer
       )
-      .addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Features.FOREST_FLOWER_VEGETATION_COMMON)
-      .addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Features.FLOWER_FOREST)
+      .addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Features.FLOWER_FOREST) // addExtraDefaultFlowers
       .addStructureFeature(StructureFeatures.RUINED_PORTAL)
       .addSpawnFunction(DefaultBiomeFeatures::withSpawnsWithHorseAndDonkey)
       .build();
