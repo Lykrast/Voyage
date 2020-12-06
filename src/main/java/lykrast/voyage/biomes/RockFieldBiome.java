@@ -2,7 +2,6 @@ package lykrast.voyage.biomes;
 
 import lykrast.voyage.ColorConstants;
 import lykrast.voyage.VoyageBiomes;
-import lykrast.voyage.biomebuilder.DefaultFeature;
 import lykrast.voyage.init.ConfiguredSurfaceBuilders;
 import lykrast.voyage.init.ModFeatures;
 import net.minecraft.world.biome.Biome;

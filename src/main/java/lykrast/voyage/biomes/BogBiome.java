@@ -3,10 +3,8 @@ package lykrast.voyage.biomes;
 import lykrast.voyage.ColorConstants;
 import lykrast.voyage.VoyageBiomes;
 import lykrast.voyage.init.ConfiguredSurfaceBuilders;
-import net.minecraft.entity.EntityType;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.DefaultBiomeFeatures;
-import net.minecraft.world.biome.MobSpawnInfo;
 import net.minecraft.world.gen.GenerationStage;
 import net.minecraft.world.gen.feature.Features;
 import net.minecraft.world.gen.feature.structure.StructureFeatures;
@@ -46,7 +44,7 @@ public class BogBiome {
       .addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Features.SEAGRASS_SWAMP)
       .addStructureFeature(StructureFeatures.RUINED_PORTAL_SWAMP)
       .addSpawnFunctions(DefaultBiomeFeatures::withPassiveMobs, // Sheep, pig, hchicken, cow
-       DefaultBiomeFeatures::withBatsAndHostiles // Bats etc
+          DefaultBiomeFeatures::withBatsAndHostiles // Bats etc
       )
       .build();
 }

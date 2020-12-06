@@ -2,7 +2,6 @@ package lykrast.voyage.biomes;
 
 import lykrast.voyage.ColorConstants;
 import lykrast.voyage.VoyageBiomes;
-import lykrast.voyage.biomebuilder.DefaultFeature;
 import lykrast.voyage.init.ConfiguredSurfaceBuilders;
 import lykrast.voyage.init.ModFeatures;
 import net.minecraft.entity.EntityClassification;
@@ -15,7 +14,7 @@ import net.minecraft.world.gen.feature.structure.StructureFeatures;
 
 public class RockyPeaksBiome {
   public static Biome ROCKY_PEAKS = VoyageBiomes.BIOME_TEMPLATE.builder()
-       .effects(VoyageBiomes.createDefaultBiomeAmbience()
+      .effects(VoyageBiomes.createDefaultBiomeAmbience()
           .setWaterColor(ColorConstants.STANDARD_WATER)
           .setWaterFogColor(ColorConstants.STANDARD_WATERFOG))
       .surfaceBuilder(ConfiguredSurfaceBuilders.CONFIGURED_PEAKS)
@@ -34,7 +33,7 @@ public class RockyPeaksBiome {
           DefaultBiomeFeatures::withOverworldOres,
           DefaultBiomeFeatures::withDisks,
           DefaultBiomeFeatures::withLavaAndWaterSprings,
-          DefaultBiomeFeatures::withMushroomBiomeVegetation,
+          DefaultBiomeFeatures::withNormalMushroomGeneration,
           DefaultBiomeFeatures::withEmeraldOre,
           DefaultBiomeFeatures::withInfestedStone,
           DefaultBiomeFeatures::withFrozenTopLayer

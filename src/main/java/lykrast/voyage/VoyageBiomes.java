@@ -1,17 +1,14 @@
 package lykrast.voyage;
 
-import lykrast.voyage.biomebuilder.BiomeTemplate;
-import lykrast.voyage.biomebuilder.TerraformBiomeBuilder;
+import lykrast.voyage.biomes.BiomeBuilder;
 import lykrast.voyage.config.BiomeConfig;
 import lykrast.voyage.config.ConfigManager;
-import lykrast.voyage.init.ConfiguredSurfaceBuilders;
 import lykrast.voyage.init.ModBiomes;
 import net.minecraft.util.RegistryKey;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.BiomeAmbience;
-import net.minecraft.world.gen.feature.structure.StructureFeatures;
 import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.common.BiomeDictionary.Type;
 import net.minecraftforge.common.BiomeManager;
@@ -21,18 +18,11 @@ import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
-import static lykrast.voyage.biomebuilder.DefaultFeature.*;
 import static net.minecraftforge.common.BiomeDictionary.Type.*;
 
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
 public class VoyageBiomes {
-  public static final BiomeTemplate BIOME_TEMPLATE = new BiomeTemplate(TerraformBiomeBuilder.create()
-      .surfaceBuilder(ConfiguredSurfaceBuilders.CONFIGURED_DEFAULT_GRASS)
-      .addDefaultFeatures(LAND_CARVERS, DEFAULT_UNDERGROUND_STRUCTURES, DUNGEONS, MINEABLES, ORES, DISKS, DEFAULT_MUSHROOMS, DEFAULT_VEGETATION, SPRINGS, FROZEN_TOP_LAYER)
-      .addStructureFeature(StructureFeatures.STRONGHOLD)
-      .addStructureFeature(StructureFeatures.MINESHAFT)
-      .precipitation(Biome.RainType.RAIN)
-      .effects(createDefaultBiomeAmbience()));
+  public static final BiomeBuilder.BiomeTemplate BIOME_TEMPLATE = new BiomeBuilder.BiomeTemplate(BiomeBuilder.create());
 
   @SubscribeEvent(priority = EventPriority.LOW)
   public static void registerBiomes(final RegistryEvent.Register<Biome> event) {

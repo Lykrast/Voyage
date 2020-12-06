@@ -2,17 +2,13 @@ package lykrast.voyage.biomes;
 
 import lykrast.voyage.ColorConstants;
 import lykrast.voyage.VoyageBiomes;
-import lykrast.voyage.biomebuilder.BiomeTemplate;
-import lykrast.voyage.biomebuilder.DefaultFeature;
 import lykrast.voyage.init.ConfiguredSurfaceBuilders;
-import net.minecraft.entity.EntityType;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.DefaultBiomeFeatures;
-import net.minecraft.world.biome.MobSpawnInfo;
 import net.minecraft.world.gen.feature.structure.StructureFeatures;
 
 public class DesertBiome {
-  public static final BiomeTemplate DESERT_TEMPLATE = new BiomeTemplate(VoyageBiomes.BIOME_TEMPLATE.builder()
+  public static final BiomeBuilder.BiomeTemplate DESERT_TEMPLATE = new BiomeBuilder.BiomeTemplate(VoyageBiomes.BIOME_TEMPLATE.builder()
       .surfaceBuilder(ConfiguredSurfaceBuilders.CONFIGURED_DESERT_MIXED)
       .precipitation(Biome.RainType.NONE)
       .category(Biome.Category.DESERT)

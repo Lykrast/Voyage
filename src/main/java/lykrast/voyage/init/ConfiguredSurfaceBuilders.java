@@ -1,7 +1,6 @@
 package lykrast.voyage.init;
 
 import lykrast.voyage.Voyage;
-import lykrast.voyage.VoyageSurfaceBuilders;
 import net.minecraft.block.Blocks;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.registry.Registry;

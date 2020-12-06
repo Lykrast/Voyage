@@ -2,7 +2,6 @@ package lykrast.voyage.biomes;
 
 import lykrast.voyage.ColorConstants;
 import lykrast.voyage.VoyageBiomes;
-import lykrast.voyage.biomebuilder.BiomeTemplate;
 import lykrast.voyage.init.ConfiguredSurfaceBuilders;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
@@ -14,7 +13,7 @@ import net.minecraft.world.gen.feature.Features;
 import net.minecraft.world.gen.feature.structure.StructureFeatures;
 
 public class LagoonBiome {
-  private static final BiomeTemplate LAGOON_TEMPLATE = new BiomeTemplate(VoyageBiomes.BIOME_TEMPLATE.builder()
+  private static final BiomeBuilder.BiomeTemplate LAGOON_TEMPLATE = new BiomeBuilder.BiomeTemplate(VoyageBiomes.BIOME_TEMPLATE.builder()
       .surfaceBuilder(ConfiguredSurfaceBuilders.CONFIGURED_DEFAULT_GRASS)
       .precipitation(Biome.RainType.RAIN)
       .category(Biome.Category.BEACH)
@@ -75,8 +74,8 @@ public class LagoonBiome {
 
   public static Biome LAGOON_WARM = LAGOON_TEMPLATE.builder()
       .effects(VoyageBiomes.createDefaultBiomeAmbience()
-          .setWaterColor(ColorConstants.OCEAN_LUKEWARM_WATER)
-          .setWaterFogColor(ColorConstants.OCEAN_LUKEWARM_WATERFOG))
+          .setWaterColor(ColorConstants.OCEAN_WARM_WATER)
+          .setWaterFogColor(ColorConstants.OCEAN_WARM_WATERFOG))
       .addDefaultFeatureFunctions(
           DefaultBiomeFeatures::withBadlandsGrass
       )

@@ -2,12 +2,9 @@ package lykrast.voyage.biomes;
 
 import lykrast.voyage.ColorConstants;
 import lykrast.voyage.VoyageBiomes;
-import lykrast.voyage.biomebuilder.DefaultFeature;
 import lykrast.voyage.init.ConfiguredSurfaceBuilders;
-import net.minecraft.entity.EntityType;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.DefaultBiomeFeatures;
-import net.minecraft.world.biome.MobSpawnInfo;
 import net.minecraft.world.gen.feature.structure.StructureFeatures;
 
 public class DesertPolarBiome {
@@ -36,5 +33,6 @@ public class DesertPolarBiome {
       .addStructureFeature(StructureFeatures.RUINED_PORTAL)
       .addStructureFeature(StructureFeatures.IGLOO)
       .addSpawnFunction(DefaultBiomeFeatures::withSnowyBiomeMobs)
+      .temperatureModifier(Biome.TemperatureModifier.FROZEN)
       .build();
 }
