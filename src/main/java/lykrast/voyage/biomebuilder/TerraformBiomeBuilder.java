@@ -14,12 +14,15 @@ import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.function.Consumer;
 
 public final class TerraformBiomeBuilder extends BuilderBiomeSettings {
+  private final ArrayList<Consumer<BiomeGenerationSettings.Builder>> defaultFeatureFunctions = new ArrayList<>();
   private final ArrayList<DefaultFeature> defaultFeatures = new ArrayList<>();
   private final ArrayList<FeatureEntry> features = new ArrayList<>();
   private final ArrayList<StructureFeature<? extends IFeatureConfig, ? extends Structure<? extends IFeatureConfig>>> structureFeatures = new ArrayList<>();
   private final ArrayList<MobSpawnInfo.Spawners> spawnEntries = new ArrayList<>();
+  private final ArrayList<Consumer<MobSpawnInfo.Builder>> spawnFunctions = new ArrayList<>();
   private float spawnChance = -1.0F;
   private boolean template = false;
   private boolean playerSpawnFriendly = false;
@@ -34,9 +37,11 @@ public final class TerraformBiomeBuilder extends BuilderBiomeSettings {
     super(existing);
 
     this.defaultFeatures.addAll(existing.defaultFeatures);
+    this.defaultFeatureFunctions.addAll(existing.defaultFeatureFunctions);
     this.features.addAll(existing.features);
     this.structureFeatures.addAll(existing.structureFeatures);
     this.spawnEntries.addAll(existing.spawnEntries);
+    this.spawnFunctions.addAll(existing.spawnFunctions);
 
     this.spawnChance = existing.spawnChance;
     this.playerSpawnFriendly = existing.playerSpawnFriendly;
@@ -69,6 +74,10 @@ public final class TerraformBiomeBuilder extends BuilderBiomeSettings {
       spawnSettings.withSpawner(spawnEntry.type.getClassification(), spawnEntry);
     }
 
+    for (Consumer<MobSpawnInfo.Builder> mobFunction : spawnFunctions) {
+      mobFunction.accept(spawnSettings);
+    }
+
     if (playerSpawnFriendly) {
       spawnSettings.isValidSpawnBiomeForPlayer();
     }
@@ -81,6 +90,10 @@ public final class TerraformBiomeBuilder extends BuilderBiomeSettings {
     // Add any minecraft (default) features
     for (DefaultFeature defaultFeature : defaultFeatures) {
       defaultFeature.add(generationSettings);
+    }
+
+    for (Consumer<BiomeGenerationSettings.Builder> featureFunction : defaultFeatureFunctions) {
+      featureFunction.accept(generationSettings);
     }
 
     // Add custom features that don't fit in the templates
@@ -157,6 +170,17 @@ public final class TerraformBiomeBuilder extends BuilderBiomeSettings {
     return this;
   }
 
+  public TerraformBiomeBuilder addSpawnFunction(Consumer<MobSpawnInfo.Builder> function) {
+    this.spawnFunctions.add(function);
+    return this;
+  }
+
+  @SafeVarargs
+  public final TerraformBiomeBuilder addSpawnFunctions(Consumer<MobSpawnInfo.Builder>... functions) {
+    this.spawnFunctions.addAll(Arrays.asList(functions));
+    return this;
+  }
+
   public TerraformBiomeBuilder addStructureFeature(StructureFeature<? extends IFeatureConfig, ? extends Structure<? extends IFeatureConfig>> stucture) {
     this.structureFeatures.add(stucture);
     return this;
@@ -169,6 +193,17 @@ public final class TerraformBiomeBuilder extends BuilderBiomeSettings {
 
   public TerraformBiomeBuilder addDefaultFeatures(DefaultFeature... features) {
     defaultFeatures.addAll(Arrays.asList(features));
+    return this;
+  }
+
+  public TerraformBiomeBuilder addDefaultFeatureFunction(Consumer<BiomeGenerationSettings.Builder> feature) {
+    defaultFeatureFunctions.add(feature);
+    return this;
+  }
+
+  @SafeVarargs
+  public final TerraformBiomeBuilder addDefaultFeatureFunctions(Consumer<BiomeGenerationSettings.Builder>... feature) {
+    defaultFeatureFunctions.addAll(Arrays.asList(feature));
     return this;
   }
 

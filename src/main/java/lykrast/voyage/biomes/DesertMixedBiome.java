@@ -21,6 +21,7 @@ public class DesertMixedBiome {
       .addStructureFeature(StructureFeatures.VILLAGE_DESERT)
       .addStructureFeature(StructureFeatures.DESERT_PYRAMID)
       .addDefaultFeatures(DefaultFeature.LAND_CARVERS, DefaultFeature.DEFAULT_UNDERGROUND_STRUCTURES, DefaultFeature.DESERT_LAKES, DefaultFeature.DUNGEONS, DefaultFeature.DEFAULT_FLOWERS, DefaultFeature.BADLANDS_GRASS, DefaultFeature.DISKS, DefaultFeature.DESERT_DEAD_BUSHES, DefaultFeature.DEFAULT_MUSHROOMS, DefaultFeature.SPRINGS, DefaultFeature.DESERT_FEATURES, DefaultFeature.FROZEN_TOP_LAYER, DefaultFeature.BADLANDS_VEGETATION)
+      .addStructureFeature(StructureFeatures.RUINED_PORTAL_DESERT)
       .addSpawnEntry(new MobSpawnInfo.Spawners(EntityType.RABBIT, 4, 2, 3))
       .addSpawnEntry(new MobSpawnInfo.Spawners(EntityType.BAT, 10, 8, 8))
       .addSpawnEntry(new MobSpawnInfo.Spawners(EntityType.SPIDER, 100, 4, 4))
