@@ -1,5 +1,7 @@
 package lykrast.voyage;
 
+import net.minecraft.util.math.MathHelper;
+
 public class ColorConstants {
 	//Mountains, Plains, Desert
 	public static final int STANDARD_WATER = 0x3F76E4;
@@ -17,4 +19,9 @@ public class ColorConstants {
 	
 	private ColorConstants() {}
 
+  public static int getSkyColor(float temperature) {
+    float f = temperature / 3.0F;
+    f = MathHelper.clamp(f, -1.0F, 1.0F);
+    return MathHelper.hsvToRGB(0.62222224F - f * 0.05F, 0.5F + f * 0.1F, 1.0F);
+  }
 }

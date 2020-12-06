@@ -20,7 +20,7 @@ public class FlowerPlainsBiome {
       .downfall(0.8F)
       .effects(VoyageRegistry.createDefaultBiomeAmbience()
           .setWaterColor(ColorConstants.STANDARD_WATER)
-          .setWaterFogColor(ColorConstants.STANDARD_WATERFOG))
+          .setWaterFogColor(ColorConstants.PLAINS_WATERFOG))
       .addDefaultFeatureFunctions(DefaultBiomeFeatures::withCavesAndCanyons, // addCarvers
           DefaultBiomeFeatures::withStrongholdAndMineshaft, // part of addStructures
           DefaultBiomeFeatures::withLavaAndWaterLakes, // addLakes

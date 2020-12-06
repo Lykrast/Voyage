@@ -1,11 +1,9 @@
 package lykrast.voyage;
 
-import lykrast.voyage.biomes.BiomeBuilder;
 import lykrast.voyage.config.BiomeConfig;
 import lykrast.voyage.config.ConfigManager;
 import lykrast.voyage.init.VoyageBiomes;
 import net.minecraft.util.RegistryKey;
-import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.BiomeAmbience;
@@ -52,17 +50,11 @@ public class VoyageRegistry {
     }
   }
 
-  public static int getSkyColor(float temperature) {
-    float f = temperature / 3.0F;
-    f = MathHelper.clamp(f, -1.0F, 1.0F);
-    return MathHelper.hsvToRGB(0.62222224F - f * 0.05F, 0.5F + f * 0.1F, 1.0F);
-  }
-
   public static BiomeAmbience.Builder createDefaultBiomeAmbience() {
     return new BiomeAmbience.Builder()
         .setWaterColor(0x3F76E4)
         .setWaterFogColor(0x50533)
-        .withSkyColor(getSkyColor(0.2F))
+        .withSkyColor(ColorConstants.getSkyColor(0.2F))
         .setFogColor(0xC0D8FF);
   }
 }
