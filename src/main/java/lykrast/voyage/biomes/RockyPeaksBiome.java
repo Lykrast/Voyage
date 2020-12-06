@@ -3,7 +3,7 @@ package lykrast.voyage.biomes;
 import lykrast.voyage.ColorConstants;
 import lykrast.voyage.VoyageBiomes;
 import lykrast.voyage.init.ConfiguredSurfaceBuilders;
-import lykrast.voyage.init.ModFeatures;
+import lykrast.voyage.init.ConfiguredFeatures;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
 import net.minecraft.world.biome.Biome;
@@ -42,7 +42,7 @@ public class RockyPeaksBiome {
           DefaultBiomeFeatures::withBatsAndHostiles,
           (o) -> o.withSpawner(EntityClassification.CREATURE, new MobSpawnInfo.Spawners(EntityType.LLAMA, 5, 4, 6))
       )
-      .addFeature(GenerationStage.Decoration.LOCAL_MODIFICATIONS, ModFeatures.ROCK_BOULDERS) // TODO: IMPROVE
+      .addFeature(GenerationStage.Decoration.LOCAL_MODIFICATIONS, ConfiguredFeatures.ROCK_BOULDERS) // TODO: IMPROVE
       .addStructureFeature(StructureFeatures.RUINED_PORTAL_MOUNTAIN)
       .build();
 }

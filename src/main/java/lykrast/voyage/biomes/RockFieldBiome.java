@@ -3,7 +3,7 @@ package lykrast.voyage.biomes;
 import lykrast.voyage.ColorConstants;
 import lykrast.voyage.VoyageBiomes;
 import lykrast.voyage.init.ConfiguredSurfaceBuilders;
-import lykrast.voyage.init.ModFeatures;
+import lykrast.voyage.init.ConfiguredFeatures;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.DefaultBiomeFeatures;
 import net.minecraft.world.gen.GenerationStage;
@@ -37,7 +37,7 @@ public class RockFieldBiome {
           DefaultBiomeFeatures::withFrozenTopLayer
       )
       .addSpawnFunction(DefaultBiomeFeatures::withBatsAndHostiles)
-      .addFeature(GenerationStage.Decoration.LOCAL_MODIFICATIONS, ModFeatures.ROCK_BOULDERS) // TODO: Improve this
+      .addFeature(GenerationStage.Decoration.LOCAL_MODIFICATIONS, ConfiguredFeatures.ROCK_BOULDERS) // TODO: Improve this
       .addStructureFeature(StructureFeatures.RUINED_PORTAL_MOUNTAIN)
       .build();
 }

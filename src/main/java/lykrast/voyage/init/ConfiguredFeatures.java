@@ -9,8 +9,7 @@ import net.minecraft.util.registry.WorldGenRegistries;
 import net.minecraft.world.gen.feature.*;
 import net.minecraft.world.gen.placement.Placement;
 
-@SuppressWarnings("unchecked")
-public class ModFeatures {
+public class ConfiguredFeatures {
   public static ConfiguredFeature<?, ?> ROCK_BOULDERS = register("rock_boulders", Feature.RANDOM_SELECTOR.withConfiguration(
       new MultipleRandomFeatureConfig(
           ImmutableList.of(

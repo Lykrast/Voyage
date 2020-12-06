@@ -1,7 +1,7 @@
 package lykrast.voyage;
 
 import lykrast.voyage.config.ConfigManager;
-import lykrast.voyage.init.ModFeatures;
+import lykrast.voyage.init.ConfiguredFeatures;
 import lykrast.voyage.init.ModSurfaceBuilders;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.ModLoadingContext;
@@ -22,7 +22,7 @@ public class Voyage {
     //This bit is from the Voyage config system basically, nooby said it's cool (and MIT)
     //https://github.com/MysticMods/Voyage/blob/master/src/main/java/epicsquid/traverse/Voyage.java
     ModSurfaceBuilders.load();
-    ModFeatures.load();
+    ConfiguredFeatures.load();
     ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, ConfigManager.COMMON_CONFIG);
     ConfigManager.loadConfig(ConfigManager.COMMON_CONFIG, FMLPaths.CONFIGDIR.get().resolve(MODID + "-common.toml"));
   }
