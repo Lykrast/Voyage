@@ -4,6 +4,7 @@ import lykrast.voyage.ColorConstants;
 import lykrast.voyage.VoyageBiomes;
 import lykrast.voyage.biomebuilder.BiomeTemplate;
 import lykrast.voyage.init.ConfiguredSurfaceBuilders;
+import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.DefaultBiomeFeatures;
@@ -55,7 +56,10 @@ public class LagoonBiome {
           DefaultBiomeFeatures::withWarmKelp,
           DefaultBiomeFeatures::withNormalGrassPatch
       )
-      .addSpawnFunction((o) -> DefaultBiomeFeatures.withOceanMobs(o, 3, 4, 15))
+      .addSpawnFunctions(
+          (o) -> DefaultBiomeFeatures.withOceanMobs(o, 3, 4, 15),
+          (o) -> o.withSpawner(EntityClassification.CREATURE, new MobSpawnInfo.Spawners(EntityType.TURTLE, 5, 2, 5))
+      )
       .addSpawnEntry(new MobSpawnInfo.Spawners(EntityType.PUFFERFISH, 5, 1, 3))
       .addSpawnEntry(new MobSpawnInfo.Spawners(EntityType.TROPICAL_FISH, 25, 8, 8))
       .addSpawnEntry(new MobSpawnInfo.Spawners(EntityType.DOLPHIN, 2, 1, 2))
@@ -75,7 +79,9 @@ public class LagoonBiome {
       )
       .addSpawnFunctions(
           (o) -> DefaultBiomeFeatures.withOceanMobs(o, 1, 4, 10),
-          (o) -> DefaultBiomeFeatures.withWarmOceanMobs(o, 10, 4))
+          (o) -> DefaultBiomeFeatures.withWarmOceanMobs(o, 10, 4),
+          (o) -> o.withSpawner(EntityClassification.CREATURE, new MobSpawnInfo.Spawners(EntityType.TURTLE, 5, 2, 5))
+          )
       .addSpawnEntry(new MobSpawnInfo.Spawners(EntityType.DOLPHIN, 1, 1, 2))
       .addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Features.WARM_OCEAN_VEGETATION)
       .addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Features.SEAGRASS_WARM)

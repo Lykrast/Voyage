@@ -8,6 +8,7 @@ import lykrast.voyage.init.ModFeatures;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.DefaultBiomeFeatures;
 import net.minecraft.world.gen.GenerationStage;
+import net.minecraft.world.gen.feature.structure.StructureFeatures;
 
 public class RockFieldBiome {
   public static Biome ROCK_FIELD = VoyageBiomes.BIOME_TEMPLATE.builder()
@@ -38,5 +39,6 @@ public class RockFieldBiome {
       )
       .addSpawnFunction(DefaultBiomeFeatures::withBatsAndHostiles)
       .addFeature(GenerationStage.Decoration.LOCAL_MODIFICATIONS, ModFeatures.ROCK_BOULDERS) // TODO: Improve this
+      .addStructureFeature(StructureFeatures.RUINED_PORTAL_MOUNTAIN)
       .build();
 }

@@ -27,7 +27,8 @@ public class DesertBiome {
           DefaultBiomeFeatures::withOverworldOres, // addOres
           DefaultBiomeFeatures::withDisks, // addSedimentDisks
           DefaultBiomeFeatures::withDefaultFlowers, // addDefaultFlowers
-          DefaultBiomeFeatures::withBadlandsGrassAndBush, // Possibly Add Sparse Grass and Add Dead Bushes
+          DefaultBiomeFeatures::withDesertDeadBushes, // dead bushes
+          DefaultBiomeFeatures::withBadlandsGrass, // add sparse grass
           DefaultBiomeFeatures::withNormalMushroomGeneration, // addMushrooms
           DefaultBiomeFeatures::withDesertVegetation, // addExtraReedsPumpkinsCactus
           DefaultBiomeFeatures::withLavaAndWaterSprings, // addSprings

@@ -8,6 +8,7 @@ import net.minecraft.entity.EntityType;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.DefaultBiomeFeatures;
 import net.minecraft.world.biome.MobSpawnInfo;
+import net.minecraft.world.gen.feature.structure.StructureFeatures;
 
 public class MountBiome {
   public static Biome MOUNT = VoyageBiomes.BIOME_TEMPLATE.builder()
@@ -42,5 +43,6 @@ public class MountBiome {
           DefaultBiomeFeatures::withBatsAndHostiles,
           (o) -> o.withSpawner(EntityClassification.CREATURE, new MobSpawnInfo.Spawners(EntityType.LLAMA, 5, 4, 6))
       )
+      .addStructureFeature(StructureFeatures.RUINED_PORTAL_MOUNTAIN)
       .build();
 }
