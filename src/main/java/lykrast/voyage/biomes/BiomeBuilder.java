@@ -16,6 +16,10 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.function.Consumer;
 
+// Biome Builder adapted from the Traverse & Terraform Projects
+// for the Traverse Reforged port to Forge:
+// http://github.com/MysticMods/Traverse
+
 public final class BiomeBuilder implements Cloneable {
   private ConfiguredSurfaceBuilder<?> surfaceBuilder;
   private Biome.RainType precipitation;
