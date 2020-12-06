@@ -13,7 +13,7 @@ import java.util.Set;
 import java.util.function.Supplier;
 
 @Mod.EventBusSubscriber(modid = Voyage.MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
-public class ModBiomes {
+public class VoyageBiomes {
   private static Set<Biome> BIOMES = new HashSet<>();
 
   public static Biome MOUNT = register("mount", () -> MountBiome.MOUNT);

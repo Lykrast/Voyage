@@ -1,7 +1,7 @@
 package lykrast.voyage.biomes;
 
 import lykrast.voyage.ColorConstants;
-import lykrast.voyage.VoyageBiomes;
+import lykrast.voyage.VoyageRegistry;
 import lykrast.voyage.init.ConfiguredSurfaceBuilders;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.DefaultBiomeFeatures;
@@ -10,7 +10,7 @@ import net.minecraft.world.gen.feature.Features;
 import net.minecraft.world.gen.feature.structure.StructureFeatures;
 
 public class ForestLushBiome {
-  public static Biome FOREST_LUSH = VoyageBiomes.BIOME_TEMPLATE.builder()
+  public static Biome FOREST_LUSH = BiomeBuilder.BIOME_TEMPLATE.builder()
       .surfaceBuilder(ConfiguredSurfaceBuilders.CONFIGURED_DEFAULT_GRASS)
       .precipitation(Biome.RainType.RAIN)
       .category(Biome.Category.FOREST)
@@ -18,7 +18,7 @@ public class ForestLushBiome {
       .scale(0.2F)
       .temperature(0.7F)
       .downfall(0.8F)
-      .effects(VoyageBiomes.createDefaultBiomeAmbience()
+      .effects(VoyageRegistry.createDefaultBiomeAmbience()
           .withGrassColor(0x3DD424)
           .withFoliageColor(0x2FB519)
           .setWaterColor(ColorConstants.OCEAN_LUKEWARM_WATER)

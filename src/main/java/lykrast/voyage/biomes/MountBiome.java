@@ -1,7 +1,7 @@
 package lykrast.voyage.biomes;
 
 import lykrast.voyage.ColorConstants;
-import lykrast.voyage.VoyageBiomes;
+import lykrast.voyage.VoyageRegistry;
 import lykrast.voyage.init.ConfiguredSurfaceBuilders;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
@@ -11,9 +11,9 @@ import net.minecraft.world.biome.MobSpawnInfo;
 import net.minecraft.world.gen.feature.structure.StructureFeatures;
 
 public class MountBiome {
-  public static Biome MOUNT = VoyageBiomes.BIOME_TEMPLATE.builder()
+  public static Biome MOUNT = BiomeBuilder.BIOME_TEMPLATE.builder()
       .surfaceBuilder(ConfiguredSurfaceBuilders.CONFIGURED_MOUNTAIN)
-      .effects(VoyageBiomes.createDefaultBiomeAmbience()
+      .effects(VoyageRegistry.createDefaultBiomeAmbience()
           .setWaterColor(ColorConstants.STANDARD_WATER)
           .setWaterFogColor(ColorConstants.STANDARD_WATERFOG))
       .precipitation(Biome.RainType.RAIN)

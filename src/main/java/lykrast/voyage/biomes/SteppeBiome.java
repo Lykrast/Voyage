@@ -1,7 +1,7 @@
 package lykrast.voyage.biomes;
 
 import lykrast.voyage.ColorConstants;
-import lykrast.voyage.VoyageBiomes;
+import lykrast.voyage.VoyageRegistry;
 import lykrast.voyage.init.ConfiguredSurfaceBuilders;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.DefaultBiomeFeatures;
@@ -10,8 +10,8 @@ import net.minecraft.world.gen.feature.Features;
 import net.minecraft.world.gen.feature.structure.StructureFeatures;
 
 public class SteppeBiome {
-  public static Biome STEPPE = VoyageBiomes.BIOME_TEMPLATE.builder()
-      .effects(VoyageBiomes.createDefaultBiomeAmbience()
+  public static Biome STEPPE = BiomeBuilder.BIOME_TEMPLATE.builder()
+      .effects(VoyageRegistry.createDefaultBiomeAmbience()
           .setWaterColor(ColorConstants.STANDARD_WATER)
           .setWaterFogColor(ColorConstants.STANDARD_WATERFOG))
       .surfaceBuilder(ConfiguredSurfaceBuilders.CONFIGURED_STEPPE)

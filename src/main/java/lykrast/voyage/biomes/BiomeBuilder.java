@@ -21,6 +21,8 @@ import java.util.function.Consumer;
 // http://github.com/MysticMods/Traverse
 
 public final class BiomeBuilder implements Cloneable {
+  public static final BiomeTemplate BIOME_TEMPLATE = new BiomeTemplate(create());
+
   private ConfiguredSurfaceBuilder<?> surfaceBuilder;
   private Biome.RainType precipitation;
   private Biome.Category category;

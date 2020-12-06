@@ -1,7 +1,7 @@
 package lykrast.voyage.biomes;
 
 import lykrast.voyage.ColorConstants;
-import lykrast.voyage.VoyageBiomes;
+import lykrast.voyage.VoyageRegistry;
 import lykrast.voyage.init.ConfiguredSurfaceBuilders;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.DefaultBiomeFeatures;
@@ -10,7 +10,7 @@ import net.minecraft.world.gen.feature.Features;
 import net.minecraft.world.gen.feature.structure.StructureFeatures;
 
 public class BogBiome {
-  public static final Biome BOG_BIOME = VoyageBiomes.BIOME_TEMPLATE.builder()
+  public static final Biome BOG_BIOME = BiomeBuilder.BIOME_TEMPLATE.builder()
       .surfaceBuilder(ConfiguredSurfaceBuilders.CONFIGURED_GRASSY_SWAMP)
       .precipitation(Biome.RainType.RAIN)
       .category(Biome.Category.SWAMP)
@@ -18,7 +18,7 @@ public class BogBiome {
       .scale(0.0f)
       .temperature(0.8f)
       .downfall(0.9f)
-      .effects(VoyageBiomes.createDefaultBiomeAmbience()
+      .effects(VoyageRegistry.createDefaultBiomeAmbience()
           .setWaterColor(ColorConstants.SWAMP_WATER)
           .setWaterFogColor(ColorConstants.SWAMP_WATERFOG))
       .addDefaultFeatureFunctions(DefaultBiomeFeatures::withCavesAndCanyons, // addCarvers

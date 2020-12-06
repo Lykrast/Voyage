@@ -1,14 +1,14 @@
 package lykrast.voyage.biomes;
 
 import lykrast.voyage.ColorConstants;
-import lykrast.voyage.VoyageBiomes;
+import lykrast.voyage.VoyageRegistry;
 import lykrast.voyage.init.ConfiguredSurfaceBuilders;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.DefaultBiomeFeatures;
 import net.minecraft.world.gen.feature.structure.StructureFeatures;
 
 public class DesertPolarBiome {
-  public static Biome DESERT_POLAR = VoyageBiomes.BIOME_TEMPLATE.builder()
+  public static Biome DESERT_POLAR = BiomeBuilder.BIOME_TEMPLATE.builder()
       .surfaceBuilder(ConfiguredSurfaceBuilders.CONFIGURED_POLAR_DESERT)
       .precipitation(Biome.RainType.SNOW)
       .category(Biome.Category.ICY)
@@ -16,7 +16,7 @@ public class DesertPolarBiome {
       .scale(0.0F)
       .temperature(0.0F)
       .downfall(0.0F)
-      .effects(VoyageBiomes.createDefaultBiomeAmbience()
+      .effects(VoyageRegistry.createDefaultBiomeAmbience()
           .setWaterColor(ColorConstants.STANDARD_WATER)
           .setWaterFogColor(ColorConstants.STANDARD_WATERFOG))
       .addDefaultFeatureFunctions(DefaultBiomeFeatures::withCavesAndCanyons, // addCarvers

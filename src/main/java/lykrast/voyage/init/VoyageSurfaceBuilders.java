@@ -14,7 +14,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Mod.EventBusSubscriber(modid = Voyage.MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
-public class ModSurfaceBuilders {
+public class VoyageSurfaceBuilders {
   private static Set<SurfaceBuilder<SurfaceBuilderConfig>> BUILDERS = new HashSet<>();
 
   public static final SurfaceBuilder<SurfaceBuilderConfig> STEPPE = register("steppe", new DualSurfaceBuilder(SurfaceBuilderConfig.field_237203_a_, SurfaceBuilder.SAND_CONFIG, SurfaceBuilder.GRASS_DIRT_GRAVEL_CONFIG, 1));

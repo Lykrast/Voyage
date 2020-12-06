@@ -1,7 +1,7 @@
 package lykrast.voyage.biomes;
 
 import lykrast.voyage.ColorConstants;
-import lykrast.voyage.VoyageBiomes;
+import lykrast.voyage.VoyageRegistry;
 import lykrast.voyage.init.ConfiguredSurfaceBuilders;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
@@ -13,7 +13,7 @@ import net.minecraft.world.gen.feature.Features;
 import net.minecraft.world.gen.feature.structure.StructureFeatures;
 
 public class LagoonBiome {
-  private static final BiomeBuilder.BiomeTemplate LAGOON_TEMPLATE = new BiomeBuilder.BiomeTemplate(VoyageBiomes.BIOME_TEMPLATE.builder()
+  private static final BiomeBuilder.BiomeTemplate LAGOON_TEMPLATE = new BiomeBuilder.BiomeTemplate(BiomeBuilder.BIOME_TEMPLATE.builder()
       .surfaceBuilder(ConfiguredSurfaceBuilders.CONFIGURED_DEFAULT_GRASS)
       .precipitation(Biome.RainType.RAIN)
       .category(Biome.Category.BEACH)
@@ -35,7 +35,7 @@ public class LagoonBiome {
       .addStructureFeature(StructureFeatures.BURIED_TREASURE));
 
   public static Biome LAGOON_COLD = LAGOON_TEMPLATE.builder()
-      .effects(VoyageBiomes.createDefaultBiomeAmbience()
+      .effects(VoyageRegistry.createDefaultBiomeAmbience()
           .setWaterColor(ColorConstants.OCEAN_COLD_WATER)
           .setWaterFogColor(ColorConstants.STANDARD_WATERFOG))
       .addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Features.SEAGRASS_COLD)
@@ -51,7 +51,7 @@ public class LagoonBiome {
       .build();
 
   public static Biome LAGOON_LUKEWARM = LAGOON_TEMPLATE.builder()
-      .effects(VoyageBiomes.createDefaultBiomeAmbience()
+      .effects(VoyageRegistry.createDefaultBiomeAmbience()
           .setWaterColor(ColorConstants.OCEAN_LUKEWARM_WATER)
           .setWaterFogColor(ColorConstants.OCEAN_LUKEWARM_WATERFOG))
       .addDefaultFeatureFunctions(
@@ -73,7 +73,7 @@ public class LagoonBiome {
       .build();
 
   public static Biome LAGOON_WARM = LAGOON_TEMPLATE.builder()
-      .effects(VoyageBiomes.createDefaultBiomeAmbience()
+      .effects(VoyageRegistry.createDefaultBiomeAmbience()
           .setWaterColor(ColorConstants.OCEAN_WARM_WATER)
           .setWaterFogColor(ColorConstants.OCEAN_WARM_WATERFOG))
       .addDefaultFeatureFunctions(

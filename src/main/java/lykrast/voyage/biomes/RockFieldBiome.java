@@ -1,7 +1,7 @@
 package lykrast.voyage.biomes;
 
 import lykrast.voyage.ColorConstants;
-import lykrast.voyage.VoyageBiomes;
+import lykrast.voyage.VoyageRegistry;
 import lykrast.voyage.init.ConfiguredSurfaceBuilders;
 import lykrast.voyage.init.ConfiguredFeatures;
 import net.minecraft.world.biome.Biome;
@@ -10,8 +10,8 @@ import net.minecraft.world.gen.GenerationStage;
 import net.minecraft.world.gen.feature.structure.StructureFeatures;
 
 public class RockFieldBiome {
-  public static Biome ROCK_FIELD = VoyageBiomes.BIOME_TEMPLATE.builder()
-      .effects(VoyageBiomes.createDefaultBiomeAmbience()
+  public static Biome ROCK_FIELD = BiomeBuilder.BIOME_TEMPLATE.builder()
+      .effects(VoyageRegistry.createDefaultBiomeAmbience()
           .withGrassColor(0xFFEE96)
           .withFoliageColor(0xFFEE96)
           .setWaterColor(ColorConstants.STANDARD_WATER)
