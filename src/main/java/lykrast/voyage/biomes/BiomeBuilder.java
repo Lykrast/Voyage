@@ -92,7 +92,6 @@ public final class BiomeBuilder implements Cloneable {
     this.spawnFunctions.addAll(existing.spawnFunctions);
     this.spawnChance = existing.spawnChance;
     this.playerSpawnFriendly = existing.playerSpawnFriendly;
-    this.template = existing.template;
   }
 
   @SuppressWarnings("unchecked")
