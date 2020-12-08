@@ -2,6 +2,7 @@ package lykrast.voyage.biomes;
 
 import lykrast.voyage.ColorConstants;
 import lykrast.voyage.VoyageRegistry;
+import lykrast.voyage.init.ConfiguredFeatures;
 import lykrast.voyage.init.ConfiguredSurfaceBuilders;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.DefaultBiomeFeatures;
@@ -35,12 +36,11 @@ public class ForestLushBiome {
           DefaultBiomeFeatures::withDisks, // addSedimentDisks
           DefaultBiomeFeatures::withJungleGrass,
           DefaultBiomeFeatures::withSugarCaneAndPumpkins,
-          DefaultBiomeFeatures::withTallBirches, // tall birch trees
           DefaultBiomeFeatures::withFrozenTopLayer
       )
+      .addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, ConfiguredFeatures.LUSH_TREES)
       .addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Features.FLOWER_FOREST) // addExtraDefaultFlowers
       .addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Features.PATCH_MELON)
-      .addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Features.FANCY_OAK_BEES_002)
       .addStructureFeature(StructureFeatures.RUINED_PORTAL)
       .addSpawnFunctions(DefaultBiomeFeatures::withPassiveMobs, // Sheep, pig, chicken, cow
           DefaultBiomeFeatures::withBatsAndHostiles // Bats etc
