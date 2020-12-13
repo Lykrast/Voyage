@@ -37,7 +37,7 @@ public class RockFieldBiome {
           DefaultBiomeFeatures::withFrozenTopLayer
       )
       .addSpawnFunction(DefaultBiomeFeatures::withBatsAndHostiles)
-      .addFeature(GenerationStage.Decoration.LOCAL_MODIFICATIONS, ConfiguredFeatures.ROCK_BOULDERS) // TODO: Improve this
+      .addFeature(GenerationStage.Decoration.LOCAL_MODIFICATIONS, ConfiguredFeatures.ROCK_BOULDERS)
       .addStructureFeature(StructureFeatures.RUINED_PORTAL_MOUNTAIN)
       .build();
 }

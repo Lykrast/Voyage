@@ -38,6 +38,8 @@ public class ConfiguredFeatures {
       register("rock_boulders_cobble_0", VoyageFeatures.BIG_ROCK.withConfiguration(new BlockStateRadiusFeatureConfig(cobble, 0))))
   ).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).func_242732_c(6));
 
+  public static ConfiguredFeature<?, ?> ROCKY_PEAKS_BOULDER = register("rocky_peaks_boulder", VoyageFeatures.BIG_ROCK.withConfiguration(new BlockStateRadiusFeatureConfig(Blocks.COBBLESTONE.getDefaultState(), 1)).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).func_242732_c(4));
+
   public static final ConfiguredFeature<BaseTreeFeatureConfig, ?> SUPER_BIRCH = register("super_birch", Feature.TREE.withConfiguration((new BaseTreeFeatureConfig.Builder(new SimpleBlockStateProvider(Blocks.BIRCH_LOG.getDefaultState()), new SimpleBlockStateProvider(Blocks.BIRCH_LEAVES.getDefaultState()), new BlobFoliagePlacer(FeatureSpread.func_242252_a(2), FeatureSpread.func_242252_a(0), 3), new StraightTrunkPlacer(5, 2, 6), new TwoLayerFeature(1, 0, 1))).setIgnoreVines().build()));
 
   public static ConfiguredFeature<BaseTreeFeatureConfig, ?> SUPER_OAK = register("super_oak", Feature.TREE.withConfiguration((new BaseTreeFeatureConfig.Builder(new SimpleBlockStateProvider(Blocks.OAK_LOG.getDefaultState()), new SimpleBlockStateProvider(Blocks.OAK_LEAVES.getDefaultState()), new FancyFoliagePlacer(FeatureSpread.func_242252_a(2), FeatureSpread.func_242252_a(4), 4), new FancyTrunkPlacer(3, 11, 0), new TwoLayerFeature(0, 0, 0, OptionalInt.of(4)))).setIgnoreVines().func_236702_a_(Heightmap.Type.MOTION_BLOCKING).build()));

@@ -17,6 +17,8 @@ public class LagoonBiome {
       .surfaceBuilder(ConfiguredSurfaceBuilders.CONFIGURED_DEFAULT_GRASS)
       .precipitation(Biome.RainType.RAIN)
       .category(Biome.Category.BEACH)
+      .depth(-0.5F)
+      .scale(0.0125F)
       .addDefaultFeatureFunctions(
           DefaultBiomeFeatures::withOceanCavesAndCanyons,
           DefaultBiomeFeatures::withOceanStructures,
@@ -44,8 +46,7 @@ public class LagoonBiome {
       .addDefaultFeatureFunction(
           DefaultBiomeFeatures::withNormalGrassPatch
       )
-      .depth(-0.3F)
-      .scale(0.0125F)
+
       .temperature(0.5F)
       .downfall(0.5F)
       .build();
@@ -66,8 +67,6 @@ public class LagoonBiome {
       .addSpawnEntry(new MobSpawnInfo.Spawners(EntityType.TROPICAL_FISH, 25, 8, 8))
       .addSpawnEntry(new MobSpawnInfo.Spawners(EntityType.DOLPHIN, 2, 1, 2))
       .addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Features.SEAGRASS_WARM)
-      .depth(-0.3F)
-      .scale(0.0125F)
       .temperature(0.5F)
       .downfall(0.5F)
       .build();
@@ -88,8 +87,6 @@ public class LagoonBiome {
       .addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Features.WARM_OCEAN_VEGETATION)
       .addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Features.SEAGRASS_WARM)
       .addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Features.SEA_PICKLE)
-      .depth(-0.3F)
-      .scale(0.0125F)
       .temperature(0.5F)
       .downfall(0.5F)
       .build();

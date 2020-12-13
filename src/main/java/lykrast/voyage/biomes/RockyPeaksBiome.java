@@ -42,7 +42,7 @@ public class RockyPeaksBiome {
           DefaultBiomeFeatures::withBatsAndHostiles,
           (o) -> o.withSpawner(EntityClassification.CREATURE, new MobSpawnInfo.Spawners(EntityType.LLAMA, 5, 4, 6))
       )
-      .addFeature(GenerationStage.Decoration.LOCAL_MODIFICATIONS, ConfiguredFeatures.ROCK_BOULDERS) // TODO: IMPROVE
+      .addFeature(GenerationStage.Decoration.LOCAL_MODIFICATIONS, ConfiguredFeatures.ROCKY_PEAKS_BOULDER)
       .addStructureFeature(StructureFeatures.RUINED_PORTAL_MOUNTAIN)
       .build();
 }
