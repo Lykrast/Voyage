@@ -17,7 +17,7 @@ public class LagoonBiome {
       .surfaceBuilder(ConfiguredSurfaceBuilders.CONFIGURED_DEFAULT_GRASS)
       .precipitation(Biome.RainType.RAIN)
       .category(Biome.Category.BEACH)
-      .depth(-0.5F)
+      .depth(-0.3F)
       .scale(0.0125F)
       .addDefaultFeatureFunctions(
           DefaultBiomeFeatures::withOceanCavesAndCanyons,
