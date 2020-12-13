@@ -43,8 +43,9 @@ public class LagoonBiome {
       .addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Features.SEAGRASS_COLD)
       .addSpawnFunction((o) -> DefaultBiomeFeatures.withOceanMobs(o, 3, 4, 15))
       .addSpawnEntry(new MobSpawnInfo.Spawners(EntityType.SALMON, 15, 1, 5))
-      .addDefaultFeatureFunction(
-          DefaultBiomeFeatures::withNormalGrassPatch
+      .addDefaultFeatureFunctions(
+          DefaultBiomeFeatures::withNormalGrassPatch,
+          DefaultBiomeFeatures::withColdKelp
       )
 
       .temperature(0.5F)
