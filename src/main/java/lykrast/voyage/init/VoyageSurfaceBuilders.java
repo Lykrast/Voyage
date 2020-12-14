@@ -1,7 +1,6 @@
 package lykrast.voyage.init;
 
 import lykrast.voyage.Voyage;
-import lykrast.voyage.surfacebuilders.DualSurfaceBuilder;
 import net.minecraft.block.Blocks;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
@@ -9,6 +8,7 @@ import net.minecraft.world.gen.surfacebuilders.SurfaceBuilderConfig;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
+import noobanidus.libs.noobutil.world.gen.surfacebuilder.DualSurfaceBuilder;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -30,7 +30,7 @@ public class VoyageSurfaceBuilders {
   }
 
   @SubscribeEvent
-  public static void eventRegister (RegistryEvent.Register<SurfaceBuilder<?>> event) {
+  public static void register(RegistryEvent.Register<SurfaceBuilder<?>> event) {
     event.getRegistry().registerAll(BUILDERS.toArray(new SurfaceBuilder[0]));
   }
 

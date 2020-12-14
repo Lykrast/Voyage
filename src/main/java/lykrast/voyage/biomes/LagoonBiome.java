@@ -1,6 +1,5 @@
 package lykrast.voyage.biomes;
 
-import lykrast.voyage.ColorConstants;
 import lykrast.voyage.VoyageRegistry;
 import lykrast.voyage.init.ConfiguredSurfaceBuilders;
 import net.minecraft.entity.EntityClassification;
@@ -11,6 +10,8 @@ import net.minecraft.world.biome.MobSpawnInfo;
 import net.minecraft.world.gen.GenerationStage;
 import net.minecraft.world.gen.feature.Features;
 import net.minecraft.world.gen.feature.structure.StructureFeatures;
+import noobanidus.libs.noobutil.world.gen.BiomeBuilder;
+import noobanidus.libs.noobutil.world.gen.ColorConstants;
 
 public class LagoonBiome {
   private static final BiomeBuilder.BiomeTemplate LAGOON_TEMPLATE = new BiomeBuilder.BiomeTemplate(BiomeBuilder.BIOME_TEMPLATE.builder()

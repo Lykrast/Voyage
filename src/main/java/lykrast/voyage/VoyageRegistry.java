@@ -1,6 +1,5 @@
 package lykrast.voyage;
 
-import lykrast.voyage.config.BiomeConfig;
 import lykrast.voyage.config.ConfigManager;
 import lykrast.voyage.init.VoyageBiomes;
 import net.minecraft.util.RegistryKey;
@@ -15,6 +14,8 @@ import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
+import noobanidus.libs.noobutil.config.BiomeConfig;
+import noobanidus.libs.noobutil.world.gen.ColorConstants;
 
 import java.util.Objects;
 

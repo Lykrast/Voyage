@@ -1,13 +1,14 @@
 package lykrast.voyage.biomes;
 
-import lykrast.voyage.ColorConstants;
 import lykrast.voyage.VoyageRegistry;
-import lykrast.voyage.init.ConfiguredSurfaceBuilders;
 import lykrast.voyage.init.ConfiguredFeatures;
+import lykrast.voyage.init.ConfiguredSurfaceBuilders;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.DefaultBiomeFeatures;
 import net.minecraft.world.gen.GenerationStage;
 import net.minecraft.world.gen.feature.structure.StructureFeatures;
+import noobanidus.libs.noobutil.world.gen.BiomeBuilder;
+import noobanidus.libs.noobutil.world.gen.ColorConstants;
 
 public class RockFieldBiome {
   public static Biome ROCK_FIELD = BiomeBuilder.BIOME_TEMPLATE.builder()

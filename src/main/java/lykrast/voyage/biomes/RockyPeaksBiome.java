@@ -1,9 +1,8 @@
 package lykrast.voyage.biomes;
 
-import lykrast.voyage.ColorConstants;
 import lykrast.voyage.VoyageRegistry;
-import lykrast.voyage.init.ConfiguredSurfaceBuilders;
 import lykrast.voyage.init.ConfiguredFeatures;
+import lykrast.voyage.init.ConfiguredSurfaceBuilders;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
 import net.minecraft.world.biome.Biome;
@@ -11,6 +10,8 @@ import net.minecraft.world.biome.DefaultBiomeFeatures;
 import net.minecraft.world.biome.MobSpawnInfo;
 import net.minecraft.world.gen.GenerationStage;
 import net.minecraft.world.gen.feature.structure.StructureFeatures;
+import noobanidus.libs.noobutil.world.gen.BiomeBuilder;
+import noobanidus.libs.noobutil.world.gen.ColorConstants;
 
 public class RockyPeaksBiome {
   public static Biome ROCKY_PEAKS = BiomeBuilder.BIOME_TEMPLATE.builder()
