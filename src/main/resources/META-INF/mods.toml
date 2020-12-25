@@ -1,13 +1,13 @@
 modLoader="javafml"
-loaderVersion="[31,)"
+loaderVersion="[35,)"
 issueTrackerURL="https://github.com/Lykrast/Voyage/issues"
-
+license="https://github.com/Lykrast/Voyage/blob/master/LICENSE"
 [[mods]]
 modId="voyage"
 version="${version}"
 displayName="Voyage"
 displayURL="https://www.curseforge.com/minecraft/mc-mods/voyage"
-credits="Traverse for the idea of a lightweight biome mod"
+credits="Voyage for the idea of a lightweight biome mod"
 authors="Lykrast"
 description='''
 A lightweight biome mod that adds more biomes to your game without adding anything that isn't a biome, like blocks or items.
@@ -16,12 +16,12 @@ A lightweight biome mod that adds more biomes to your game without adding anythi
 [[dependencies.voyage]]
     modId="forge"
     mandatory=true
-    versionRange="[31,)"
+    versionRange="[35,)"
     ordering="NONE"
     side="BOTH"
 [[dependencies.voyage]]
     modId="minecraft"
     mandatory=true
-    versionRange="[1.15.2]"
+    versionRange="[1.16.4,)"
     ordering="NONE"
     side="BOTH"
