@@ -19,8 +19,8 @@ public class Voyage {
 	public static CustomRegistrate REGISTRATE;
 
 	public Voyage() {
-		//This bit is from the Voyage config system basically, nooby said it's cool (and MIT)
-		//https://github.com/MysticMods/Voyage/blob/master/src/main/java/epicsquid/traverse/Voyage.java
+		//This bit is from the Traverse config system basically, nooby said it's cool (and MIT)
+		//https://github.com/MysticMods/Traverse/blob/master/src/main/java/epicsquid/traverse/Traverse.java
 		VoyageSurfaceBuilders.load();
 		ConfiguredFeatures.load();
 		ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, ConfigManager.COMMON_CONFIG);
