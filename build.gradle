@@ -95,6 +95,18 @@ minecraft {
     }
 }
 
+processResources {
+    from(sourceSets.main.resources.srcDirs) {
+        include 'META-INF/mods.toml'
+
+        expand 'version': project.mod_version
+    }
+
+    from(sourceSets.main.resources.srcDirs) {
+        exclude 'META-INF/mods.toml'
+    }
+}
+
 repositories {
     maven {
         url 'https://maven.mcmoddev.com'
