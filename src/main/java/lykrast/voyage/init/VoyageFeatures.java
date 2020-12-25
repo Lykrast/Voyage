@@ -15,19 +15,19 @@ import java.util.Set;
 
 @Mod.EventBusSubscriber(modid = Voyage.MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class VoyageFeatures {
-  private static Set<Feature<?>> FEATURES = new HashSet<>();
+	private static Set<Feature<?>> FEATURES = new HashSet<>();
 
-  public static Feature<BlockStateRadiusFeatureConfig> BIG_ROCK = register("big_rock", new RadiusBlockBlobFeature(BlockStateRadiusFeatureConfig.CODEC));
+	public static Feature<BlockStateRadiusFeatureConfig> BIG_ROCK = register("big_rock", new RadiusBlockBlobFeature(BlockStateRadiusFeatureConfig.CODEC));
 
-  private static <T extends IFeatureConfig> Feature<T> register(String name, Feature<T> feature) {
-    ResourceLocation rl = Voyage.loc(name);
-    feature.setRegistryName(rl);
-    FEATURES.add(feature);
-    return feature;
-  }
+	private static <T extends IFeatureConfig> Feature<T> register(String name, Feature<T> feature) {
+		ResourceLocation rl = Voyage.loc(name);
+		feature.setRegistryName(rl);
+		FEATURES.add(feature);
+		return feature;
+	}
 
-  @SubscribeEvent
-  public static void eventRegister(RegistryEvent.Register<Feature<?>> event) {
-    event.getRegistry().registerAll(FEATURES.toArray(new Feature[0]));
-  }
+	@SubscribeEvent
+	public static void eventRegister(RegistryEvent.Register<Feature<?>> event) {
+		event.getRegistry().registerAll(FEATURES.toArray(new Feature[0]));
+	}
 }

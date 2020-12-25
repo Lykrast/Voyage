@@ -24,38 +24,38 @@ import static net.minecraftforge.common.BiomeDictionary.Type.*;
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
 public class VoyageRegistry {
 
-  @SubscribeEvent(priority = EventPriority.LOW)
-  public static void registerBiomes(final RegistryEvent.Register<Biome> event) {
-    register(VoyageBiomes.MOUNT, ConfigManager.MOUNT, BiomeType.COOL, OVERWORLD, MOUNTAIN, COLD);
-    register(VoyageBiomes.BOG, ConfigManager.BOG, BiomeType.WARM, OVERWORLD, WET, SWAMP);
-    register(VoyageBiomes.LAGOON_WARM, ConfigManager.LAGOON_WARM, BiomeType.WARM, OVERWORLD, BEACH, WET, HOT);
-    register(VoyageBiomes.LAGOON_LUKEWARM, ConfigManager.LAGOON_LUKEWARM, BiomeType.WARM, OVERWORLD, BEACH, WET);
-    register(VoyageBiomes.LAGOON_COLD, ConfigManager.LAGOON_COLD, BiomeType.COOL, OVERWORLD, BEACH, WET, COLD);
-    register(VoyageBiomes.STEPPE, ConfigManager.STEPPE, BiomeType.WARM, OVERWORLD, PLAINS, SPARSE, HOT, DRY);
-    register(VoyageBiomes.ROCKY_PEAKS, ConfigManager.ROCKY_PEAKS, BiomeType.WARM, OVERWORLD, MOUNTAIN);
-    register(VoyageBiomes.DESERT_MIXED, ConfigManager.DESERT_MIXED, BiomeType.DESERT, OVERWORLD, SANDY, HOT, DRY);
-    register(VoyageBiomes.DESERT_MIXED_HILLS, ConfigManager.DESERT_MIXED_HILLS, BiomeType.DESERT, OVERWORLD, SANDY, HILLS, HOT, DRY);
-    register(VoyageBiomes.FLOWER_PLAINS, ConfigManager.FLOWER_PLAINS, BiomeType.WARM, OVERWORLD, PLAINS);
-    register(VoyageBiomes.DESERT_MOUNTAINS, ConfigManager.DESERT_MOUNTAINS, BiomeType.DESERT, OVERWORLD, SANDY, HILLS, MOUNTAIN, HOT, DRY);
-    register(VoyageBiomes.DESERT_POLAR, ConfigManager.DESERT_POLAR, BiomeType.ICY, OVERWORLD, SNOWY, WASTELAND, COLD, DRY);
-    register(VoyageBiomes.FOREST_LUSH, ConfigManager.FOREST_LUSH, BiomeType.WARM, OVERWORLD, FOREST, DENSE);
-    register(VoyageBiomes.ROCK_FIELD, ConfigManager.ROCK_FIELD, BiomeType.WARM, OVERWORLD, HILLS, DRY);
-  }
+	@SubscribeEvent(priority = EventPriority.LOW)
+	public static void registerBiomes(final RegistryEvent.Register<Biome> event) {
+		register(VoyageBiomes.MOUNT, ConfigManager.MOUNT, BiomeType.COOL, OVERWORLD, MOUNTAIN, COLD);
+		register(VoyageBiomes.BOG, ConfigManager.BOG, BiomeType.WARM, OVERWORLD, WET, SWAMP);
+		register(VoyageBiomes.LAGOON_WARM, ConfigManager.LAGOON_WARM, BiomeType.WARM, OVERWORLD, BEACH, WET, HOT);
+		register(VoyageBiomes.LAGOON_LUKEWARM, ConfigManager.LAGOON_LUKEWARM, BiomeType.WARM, OVERWORLD, BEACH, WET);
+		register(VoyageBiomes.LAGOON_COLD, ConfigManager.LAGOON_COLD, BiomeType.COOL, OVERWORLD, BEACH, WET, COLD);
+		register(VoyageBiomes.STEPPE, ConfigManager.STEPPE, BiomeType.WARM, OVERWORLD, PLAINS, SPARSE, HOT, DRY);
+		register(VoyageBiomes.ROCKY_PEAKS, ConfigManager.ROCKY_PEAKS, BiomeType.WARM, OVERWORLD, MOUNTAIN);
+		register(VoyageBiomes.DESERT_MIXED, ConfigManager.DESERT_MIXED, BiomeType.DESERT, OVERWORLD, SANDY, HOT, DRY);
+		register(VoyageBiomes.DESERT_MIXED_HILLS, ConfigManager.DESERT_MIXED_HILLS, BiomeType.DESERT, OVERWORLD, SANDY, HILLS, HOT, DRY);
+		register(VoyageBiomes.FLOWER_PLAINS, ConfigManager.FLOWER_PLAINS, BiomeType.WARM, OVERWORLD, PLAINS);
+		register(VoyageBiomes.DESERT_MOUNTAINS, ConfigManager.DESERT_MOUNTAINS, BiomeType.DESERT, OVERWORLD, SANDY, HILLS, MOUNTAIN, HOT, DRY);
+		register(VoyageBiomes.DESERT_POLAR, ConfigManager.DESERT_POLAR, BiomeType.ICY, OVERWORLD, SNOWY, WASTELAND, COLD, DRY);
+		register(VoyageBiomes.FOREST_LUSH, ConfigManager.FOREST_LUSH, BiomeType.WARM, OVERWORLD, FOREST, DENSE);
+		register(VoyageBiomes.ROCK_FIELD, ConfigManager.ROCK_FIELD, BiomeType.WARM, OVERWORLD, HILLS, DRY);
+	}
 
-  //Convenience
-  private static void register(Biome b, BiomeConfig config, BiomeType managerType, Type... dictTypes) {
-    RegistryKey<Biome> biome = RegistryKey.getOrCreateKey(Registry.BIOME_KEY, Objects.requireNonNull(b.getRegistryName()));
-    if (config.shouldSpawn()) {
-      BiomeManager.addBiome(managerType, new BiomeManager.BiomeEntry(biome, config.weight()));
-      BiomeDictionary.addTypes(biome, dictTypes);
-    }
-  }
+	//Convenience
+	private static void register(Biome b, BiomeConfig config, BiomeType managerType, Type... dictTypes) {
+		RegistryKey<Biome> biome = RegistryKey.getOrCreateKey(Registry.BIOME_KEY, Objects.requireNonNull(b.getRegistryName()));
+		if (config.shouldSpawn()) {
+			BiomeManager.addBiome(managerType, new BiomeManager.BiomeEntry(biome, config.weight()));
+			BiomeDictionary.addTypes(biome, dictTypes);
+		}
+	}
 
-  public static BiomeAmbience.Builder createDefaultBiomeAmbience() {
-    return new BiomeAmbience.Builder()
-        .setWaterColor(0x3F76E4)
-        .setWaterFogColor(0x50533)
-        .withSkyColor(ColorConstants.getSkyColor(0.2F))
-        .setFogColor(0xC0D8FF);
-  }
+	public static BiomeAmbience.Builder createDefaultBiomeAmbience() {
+		return new BiomeAmbience.Builder()
+				.setWaterColor(0x3F76E4)
+				.setWaterFogColor(0x50533)
+				.withSkyColor(ColorConstants.getSkyColor(0.2F))
+				.setFogColor(0xC0D8FF);
+	}
 }

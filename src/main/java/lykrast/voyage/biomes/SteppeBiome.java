@@ -11,38 +11,36 @@ import noobanidus.libs.noobutil.world.gen.BiomeBuilder;
 import noobanidus.libs.noobutil.world.gen.ColorConstants;
 
 public class SteppeBiome {
-  public static Biome STEPPE = BiomeBuilder.BIOME_TEMPLATE.builder()
-      .effects(VoyageRegistry.createDefaultBiomeAmbience()
-          .setWaterColor(ColorConstants.STANDARD_WATER)
-          .setWaterFogColor(ColorConstants.STANDARD_WATERFOG))
-      .surfaceBuilder(ConfiguredSurfaceBuilders.CONFIGURED_STEPPE)
-      .precipitation(Biome.RainType.RAIN)
-      .category(Biome.Category.PLAINS)
-      .depth(0.125F)
-      .scale(0.05F)
-      .temperature(1.2F)
-      .downfall(0.0F)
-      .addDefaultFeatureFunctions(
-          DefaultBiomeFeatures::withStrongholdAndMineshaft,
-          DefaultBiomeFeatures::withCavesAndCanyons,
-          DefaultBiomeFeatures::withLavaAndWaterLakes,
-          DefaultBiomeFeatures::withMonsterRoom,
-          DefaultBiomeFeatures::withNoiseTallGrass,
-          DefaultBiomeFeatures::withCommonOverworldBlocks,
-          DefaultBiomeFeatures::withOverworldOres,
-          DefaultBiomeFeatures::withDesertDeadBushes,
-          DefaultBiomeFeatures::withNormalMushroomGeneration,
-          DefaultBiomeFeatures::withSugarCaneAndPumpkins,
-          DefaultBiomeFeatures::withLavaAndWaterSprings,
-          DefaultBiomeFeatures::withFrozenTopLayer
-      )
-      .addStructureFeature(StructureFeatures.VILLAGE_SAVANNA)
-      .addStructureFeature(StructureFeatures.PILLAGER_OUTPOST)
-      .addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Features.PATCH_GRASS_NORMAL)
-      .addStructureFeature(StructureFeatures.RUINED_PORTAL)
-      .addSpawnFunctions(
-          DefaultBiomeFeatures::withPassiveMobs,
-          DefaultBiomeFeatures::withBatsAndHostiles
-      )
-      .build();
+	public static Biome STEPPE = BiomeBuilder.BIOME_TEMPLATE.builder()
+			.effects(VoyageRegistry.createDefaultBiomeAmbience()
+					.setWaterColor(ColorConstants.STANDARD_WATER)
+					.setWaterFogColor(ColorConstants.STANDARD_WATERFOG))
+			.surfaceBuilder(ConfiguredSurfaceBuilders.CONFIGURED_STEPPE)
+			.precipitation(Biome.RainType.RAIN)
+			.category(Biome.Category.PLAINS)
+			.depth(0.125F)
+			.scale(0.05F)
+			.temperature(1.2F)
+			.downfall(0.0F)
+			.addDefaultFeatureFunctions(
+					DefaultBiomeFeatures::withStrongholdAndMineshaft, 
+					DefaultBiomeFeatures::withCavesAndCanyons, 
+					DefaultBiomeFeatures::withLavaAndWaterLakes, 
+					DefaultBiomeFeatures::withMonsterRoom,
+					DefaultBiomeFeatures::withNoiseTallGrass, 
+					DefaultBiomeFeatures::withCommonOverworldBlocks, 
+					DefaultBiomeFeatures::withOverworldOres, 
+					DefaultBiomeFeatures::withDesertDeadBushes,
+					DefaultBiomeFeatures::withNormalMushroomGeneration, 
+					DefaultBiomeFeatures::withSugarCaneAndPumpkins,
+					DefaultBiomeFeatures::withLavaAndWaterSprings, 
+					DefaultBiomeFeatures::withFrozenTopLayer)
+			.addStructureFeature(StructureFeatures.VILLAGE_SAVANNA)
+			.addStructureFeature(StructureFeatures.PILLAGER_OUTPOST)
+			.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Features.PATCH_GRASS_NORMAL)
+			.addStructureFeature(StructureFeatures.RUINED_PORTAL)
+			.addSpawnFunctions(
+					DefaultBiomeFeatures::withPassiveMobs,
+					DefaultBiomeFeatures::withBatsAndHostiles)
+			.build();
 }
