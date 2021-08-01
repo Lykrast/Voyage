@@ -1,5 +1,9 @@
 package lykrast.voyage.init;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.function.Supplier;
+
 import lykrast.voyage.Voyage;
 import lykrast.voyage.biomes.*;
 import net.minecraft.util.ResourceLocation;
@@ -8,13 +12,9 @@ import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
-import java.util.HashSet;
-import java.util.Set;
-import java.util.function.Supplier;
-
 @Mod.EventBusSubscriber(modid = Voyage.MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class VoyageBiomes {
-	private static Set<Biome> BIOMES = new HashSet<>();
+	private static List<Biome> BIOMES = new ArrayList<>();
 
 	public static Biome MOUNT = register("mount", () -> MountBiome.MOUNT);
 	public static Biome BOG = register("bog", () -> BogBiome.BOG_BIOME);
